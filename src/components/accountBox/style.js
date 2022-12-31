@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
-export const LoginContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  min-height: 80vh;
-`;
+
 export const FormContainer = styled.form`
   width: 400px;
   //height: 600 px;
