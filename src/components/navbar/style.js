@@ -52,10 +52,7 @@ export const NavbarLinkExtended = styled(Link)`
   
 `;
 
-export const NavbarLinkContainer = styled.div`
-  display: flex;
-  
-`;
+
 
 export const OpenLinksButton = styled.button`
   width: 70px;

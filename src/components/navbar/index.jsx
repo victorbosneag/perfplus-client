@@ -5,11 +5,10 @@ import {
   RightContainer,
   NavbarInnerContainer,
   NavbarLink,
-  NavbarLinkContainer,
   OpenLinksButton,
   NavbarExtendedContainer,
   NavbarLinkExtended,
-} from "../styles/Navbar.style";
+} from "./style";
 function Navbar() {
   const [extendedNavbar, setExtendedNavbar] = useState(false);
   return (
@@ -29,7 +28,7 @@ function Navbar() {
             {extendedNavbar ? <>&#10005;</> : <>&#8801;</>}
           </OpenLinksButton>
 
-          <NavbarLink to="/signin">Sign In</NavbarLink>
+          <NavbarLink to="/login">Sign In</NavbarLink>
           <NavbarLink to="/signin">Sign Up</NavbarLink>
         </RightContainer>
       </NavbarInnerContainer>
