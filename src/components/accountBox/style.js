@@ -51,6 +51,13 @@ export const FormEntryContainer = styled.div`
 
 export const  SubmitButton = styled.button`
   width: 50%;
+  height: 35px;
   background-color:green;
-  border-radius:5px;
+  border-radius:10px;
+  margin:5px;
+  border-style:style;
+  border-width:2px;
+  border-color:black;
+  font-size:medium;
+  color: white;
 `;
