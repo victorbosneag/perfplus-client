@@ -4,20 +4,27 @@ import {
   FormLabel,
   FormEntryContainer,
   FormInput,
+  LoginContainer,
+  LoginTitle,
+  SubmitButton,
 } from "./style";
 
 function AccountForm(props) {
   return (
-    <FormContainer>
-      {props.formData.map((data) => {
-        return (
-          <FormEntryContainer>
-            <FormLabel>{data.label}</FormLabel>
-            <FormInput name={data.name} type={data.type}></FormInput>
-          </FormEntryContainer>
-        );
-      })}
-    </FormContainer>
+    <LoginContainer>
+      <LoginTitle>{props.title}</LoginTitle>
+      <FormContainer onSubmit={props.submitFunction} autoComplete={"off"}>
+        {props.formData.map((data) => {
+          return (
+            <FormEntryContainer>
+              <FormLabel>{data.label}</FormLabel>
+              <FormInput name={data.name} type={data.type}></FormInput>
+            </FormEntryContainer>
+          );
+        })}
+        <SubmitButton type="input">{props.buttonText}</SubmitButton>
+      </FormContainer>
+    </LoginContainer>
   );
 }
 

@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80vh;
+`;
+export const LoginTitle = styled.div`
+  font-size: xx-large;
+  color: green;
+  margin: 35px;
+`;
 
 export const FormContainer = styled.form`
   width: 400px;
@@ -34,4 +47,10 @@ export const FormEntryContainer = styled.div`
   justify-content: flex-start;
   width: 90%;
   margin: 10px;
+`;
+
+export const  SubmitButton = styled.button`
+  width: 50%;
+  background-color:green;
+  border-radius:5px;
 `;
