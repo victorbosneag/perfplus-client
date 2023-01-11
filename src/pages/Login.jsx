@@ -1,10 +1,14 @@
 import React from "react";
+import { login } from "../api/login.api";
 import AccountForm from "../components/accountBox";
 import formData from "./LoginForm.config"
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  console.log(event.target.elements);
+  const data = new FormData(event.target);
+  const value = Object.fromEntries(data.entries());
+  console.log(value)
+  login(value);
 }
 
 function Login() {
