@@ -1,8 +1,8 @@
 import routes from "./api.config";
 
-const url = "http://localhost:5000" + routes.login;
+const url = "http://localhost:5000" + routes.signup;
 
-export const login = async (data = {}) => {
+export const signup = async (data = {}) => {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -18,7 +18,7 @@ export const login = async (data = {}) => {
     });
     var responseData = await response.json();
   } catch (err) {
-    throw new Error ("Login failed");
+    throw new Error ("Sign in failed");
   }
     console.log(responseData);
     if (responseData.success) {
@@ -26,6 +26,7 @@ export const login = async (data = {}) => {
       localStorage.setItem("token", JSON.stringify(token));
     }
     else{
-      throw new Error("Login failed");
+      throw new Error("Sign in failed");
     }
+  
 };
