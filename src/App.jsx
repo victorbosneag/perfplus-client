@@ -4,6 +4,7 @@ import "./App.css";
 
 import Login from "./pages/Login";
 import Signup from "./pages/SignUp";
+import ParticipantsList from "./pages/ParticipantsList";
 function App() {
   return (
     <Router>
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="participants" element={<ParticipantsList />} />
       </Routes>
     </Router>
   );

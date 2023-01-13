@@ -15,8 +15,8 @@ function Navbar() {
     <NavbarContainer extendedNavbar={extendedNavbar}>
       <NavbarInnerContainer>
         <LeftContainer>
-          <NavbarLink to="/">Filler</NavbarLink>
-          <NavbarLink to="/">Filler</NavbarLink>
+          <NavbarLink to="/">Home</NavbarLink>
+          <NavbarLink to="/participants">Participants</NavbarLink>
           <NavbarLink to="/">Filler</NavbarLink>
         </LeftContainer>
         <RightContainer>
@@ -29,7 +29,7 @@ function Navbar() {
           </OpenLinksButton>
 
           <NavbarLink to="/login">Sign In</NavbarLink>
-          <NavbarLink to="/signup">Sign Up</NavbarLink>
+          <NavbarLink to="/signup s">Sign Up</NavbarLink>
         </RightContainer>
       </NavbarInnerContainer>
       {extendedNavbar && (
