@@ -1,34 +1,47 @@
 import styled from "styled-components";
 
-export const TableContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  min-height: 80vh;
-`;
 
+export const TableBorder = styled.div`
+  
+  border-radius: 15px;
+  border-color: green;
+  border-style:solid;
+  border-width: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  
+
+`;
 export const TableStyled = styled.table`
   border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 22px;
-  font-family: sans-serif;
-  min-width: 400px;
-  border-style: solid;
-  padding: 10px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
+  overflow-x:auto;
+  overflow-y:auto;
 `;
 
 export const TableHeadStyled = styled.thead`
-  background: pink;
+  background: green;
   
 `;
 
 export const TableRowStyled = styled.tr`
-  margin-bottom:20px;
+  
   border-bottom: 1px solid #dddddd;
 `;
 export const TableEntry = styled.td`
-  
+  font-size: 18px;
   padding: 12px 15px;
+  text-align: left;
+  border-right: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+`;
+export const TableHeading = styled.th`
+  font-size: 22px;
+  padding: 12px 15px;
+  color: white;
+  text-align: left;
 `;
