@@ -29,7 +29,7 @@ function Navbar() {
           </OpenLinksButton>
 
           <NavbarLink to="/login">Sign In</NavbarLink>
-          <NavbarLink to="/signup s">Sign Up</NavbarLink>
+          <NavbarLink to="/signup">Sign Up</NavbarLink>
         </RightContainer>
       </NavbarInnerContainer>
       {extendedNavbar && (
