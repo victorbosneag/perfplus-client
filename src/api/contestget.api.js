@@ -1,13 +1,14 @@
 import routes from "./api.config";
 
-const url = "http://localhost:5000" + routes.login;
+const url = "http://localhost:5000" + routes.contestget;
 
 export const getContest = async () => {
   try{
     const response = fetch(url, {
       method:"GET"
     })
-    const responseData = (await response).json()
+    const responseRawData = await response
+    const responseData = await responseRawData.json();
     return responseData;
   }
   catch(err){
