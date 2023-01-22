@@ -24,6 +24,11 @@ export const RightContainer = styled.div`
   padding-left: 50px;
   
 `;
+export const NavbarLinkContainer = styled.div`
+  @media (max-width: 700px) {
+    display: none;
+  }
+`;
 
 export const NavbarInnerContainer = styled.div`
   width: 100%;
@@ -37,9 +42,7 @@ export const NavbarLink = styled(Link)`
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   margin: 20px;
-  @media (max-width: 700px) {
-    display: none;
-  }
+  
   
 `;
 export const NavbarLinkExtended = styled(Link)`
@@ -71,8 +74,34 @@ export const OpenLinksButton = styled.button`
 export const NavbarExtendedContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   @media (min-width: 700px){
     display: none;
   }
 `;
+
+export const NavbarAccountContainer = styled.div`
+   @media (max-width: 700px) {
+    display: none;
+  }
+`;
+
+export const NavbarAccountExtended = styled.div`
+  @media (min-width: 700px){
+    display: none;
+  }
+`;
+
+export const DropdownLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LinkContainer = styled.div`
+  display:flex;
+  flex-direction:${(props)=>(props.extendedNavbar ? "column": "row")};
+  align-items: center;
+`;
+

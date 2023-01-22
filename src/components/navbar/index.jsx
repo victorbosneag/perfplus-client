@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import NavbarAccount from "./accountBox";
+import NavbarLinks from "./links";
 import {
   NavbarContainer,
   LeftContainer,
   RightContainer,
   NavbarInnerContainer,
-  NavbarLink,
   OpenLinksButton,
   NavbarExtendedContainer,
-  NavbarLinkExtended,
+  NavbarLinkContainer,
+  NavbarAccountContainer,
+  DropdownLinkContainer,
 } from "./style";
 function Navbar() {
   const [extendedNavbar, setExtendedNavbar] = useState(false);
@@ -15,9 +18,9 @@ function Navbar() {
     <NavbarContainer extendedNavbar={extendedNavbar}>
       <NavbarInnerContainer>
         <LeftContainer>
-          <NavbarLink to="/">Home</NavbarLink>
-          <NavbarLink to="/participants">Participants</NavbarLink>
-          <NavbarLink to="/">Filler</NavbarLink>
+          <NavbarLinkContainer>
+            <NavbarLinks extended={false} />
+          </NavbarLinkContainer>
         </LeftContainer>
         <RightContainer>
           <OpenLinksButton
@@ -27,16 +30,17 @@ function Navbar() {
           >
             {extendedNavbar ? <>&#10005;</> : <>&#8801;</>}
           </OpenLinksButton>
-
-          <NavbarLink to="/login">Sign In</NavbarLink>
-          <NavbarLink to="/signup">Sign Up</NavbarLink>
+          <NavbarAccountContainer>
+            <NavbarAccount extended={false} />
+          </NavbarAccountContainer>
         </RightContainer>
       </NavbarInnerContainer>
       {extendedNavbar && (
         <NavbarExtendedContainer>
-          <NavbarLinkExtended to="/">Filler</NavbarLinkExtended>
-          <NavbarLinkExtended to="/">Filler</NavbarLinkExtended>
-          <NavbarLinkExtended to="/">Filler</NavbarLinkExtended>
+          <DropdownLinkContainer>
+            <NavbarLinks extended={true} />
+            <NavbarAccount extended={true} />
+          </DropdownLinkContainer>
         </NavbarExtendedContainer>
       )}
     </NavbarContainer>
