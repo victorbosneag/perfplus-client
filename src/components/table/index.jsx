@@ -9,11 +9,13 @@ import {
 } from "./style";
 
 function Table(props) {
+  let count = 0;
   return (
     <TableBorder>
       <TableStyled>
         <TableHeadStyled>
           <TableRowStyled>
+            <TableHeading></TableHeading>
             {props.columns.map((columnName) => {
               return <TableHeading>{columnName}</TableHeading>;
             })}
@@ -21,8 +23,10 @@ function Table(props) {
         </TableHeadStyled>
         <tbody>
           {props.tableBody.map((rowData) => {
+            count += 1;
             return (
               <TableRowStyled>
+                <TableEntry>{count}</TableEntry>
                 {rowData.map((tableEntry) => {
                   return <TableEntry>{tableEntry}</TableEntry>;
                 })}
