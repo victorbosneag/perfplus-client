@@ -20,7 +20,7 @@ function SelectComponent(props) {
     }
   };
   return (
-    <StyledSelect name={fieldName} onChange={handleChange}>
+    <StyledSelect name={fieldName} onChange={handleChange} value={props.defaultValue}>
       <option>{fieldName}</option>
       <option key="All" value="All">
         All
