@@ -65,6 +65,7 @@ function ParticipantsList() {
           data={dataContest}
           onSelectChange={onSelectChange}
           fieldName={"Contest"}
+          defaultValue={selectionContest}
         />
       </FilterContainer>
 
