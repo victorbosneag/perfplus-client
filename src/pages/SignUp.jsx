@@ -1,6 +1,6 @@
 import React from "react";
 import { signup } from "../api/signup.api";
-import AccountForm from "../components/accountBox";
+import AccountForm from "../components/formBox";
 import formData from "./SignUpForm.config"
 
 const handleSubmit = (event) => {
