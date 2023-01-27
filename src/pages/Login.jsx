@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api/login.api";
 import { LoginContext } from "../App";
-import AccountForm from "../components/formBox";
+import CustomForm from "../components/formBox";
 //import loginCheck from "../utils/loggedin.util";
 import formData from "./LoginForm.config";
 
@@ -21,7 +21,7 @@ function Login() {
     navigate("/");
   };
   return (
-    <AccountForm
+    <CustomForm
       formData={formData}
       title="Sign in"
       submitFunction={handleSubmit}

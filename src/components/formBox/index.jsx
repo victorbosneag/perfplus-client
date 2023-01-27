@@ -9,7 +9,7 @@ import {
   SubmitButton,
 } from "./style";
 
-function AccountForm(props) {
+function CustomForm(props) {
   return (
     <LoginContainer>
       <LoginTitle>{props.title}</LoginTitle>
@@ -28,4 +28,4 @@ function AccountForm(props) {
   );
 }
 
-export default AccountForm;
+export default CustomForm;
