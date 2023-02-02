@@ -1,7 +1,7 @@
 const formData = [
     {
       label: "Contest Name",
-      name: "constestName",
+      name: "contestName",
       type: "text",
     },
     {

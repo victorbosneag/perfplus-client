@@ -22,6 +22,7 @@ function CustomForm(props) {
             </FormEntryContainer>
           );
         })}
+        {props.children}
         <SubmitButton type="input">{props.buttonText}</SubmitButton>
       </FormContainer>
     </LoginContainer>

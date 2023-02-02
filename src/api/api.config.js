@@ -3,6 +3,7 @@ const routes = {
     signup: "/api/user/create",
     contestget: "/api/contest/view",
     participantget: "/api/participant/list",
+    contestcreate: "/api/contest/create",
 }
 
 export default routes;
