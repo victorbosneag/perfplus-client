@@ -23,7 +23,9 @@ export const login = async (data = {}) => {
     console.log(responseData);
     if (responseData.success) {
       const token = { token: responseData.token };
+      const role = {role: responseData.data.role};
       localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("role", JSON.stringify(role));
     }
     else{
       throw new Error("Login failed");

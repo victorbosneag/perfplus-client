@@ -1,6 +1,6 @@
 const logout = () => {
   try {
-    localStorage.removeItem("token");
+    localStorage.clear();
   } catch (err) {
     console.log(err);
   }
