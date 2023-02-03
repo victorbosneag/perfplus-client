@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { getParticipant } from "../../api/participantget.api";
+import { ParticipantDataContext } from "../../App";
 import Table from "../table";
 
 import { PageContainer } from "./style";
@@ -9,8 +11,10 @@ function ParticipantsTable(props) {
   let selectionHighSchool = props.selectionHighSchool;
   let selectionPage = props.selectionPage;
   let selectionItems = props.selectionItems;
-  console.log(columns);
-  console.log(selectionContest);
+
+  let contestList = useContext(ParticipantDataContext);
+  
+  
   //const columns = ["ID", "First Name", "Last Name", "Result", "Award"];
   //use state and use effect for contest data
   //const [dataContest, setData] = useState([]);
@@ -33,7 +37,11 @@ function ParticipantsTable(props) {
               participantData.push(participantEntry[key]);
             }
           }
+          const contestID = participantData[7];
+          const contestName = contestList[contestID].name;
           participantData = participantData.slice(0, 5);
+          participantData.push(contestName)
+          
           return participantData;
         });
         setTableBody(participantList);
@@ -42,7 +50,7 @@ function ParticipantsTable(props) {
       }
     };
     fetchData();
-  }, [selectionContest, selectionHighSchool, selectionPage, selectionItems]);
+  }, [selectionContest, selectionHighSchool, selectionPage, selectionItems, contestList]);
 
   return (
     <PageContainer>

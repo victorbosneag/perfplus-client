@@ -6,8 +6,16 @@ import { getContest } from "../api/contestget.api";
 
 import ParticipantsTable from "../components/participantTable";
 
+import { ParticipantDataContext } from "../App";
 function ParticipantsList() {
-  const columns = ["ID", "First Name", "Last Name", "Result", "Award"];
+  const columns = [
+    "ID",
+    "First Name",
+    "Last Name",
+    "Result",
+    "Award",
+    "Contest",
+  ];
   //use state and use effect for contest data
   const [dataContest, setData] = useState([]);
   const [selectionContest, setSelectionContest] = useState("All");
@@ -44,11 +52,12 @@ function ParticipantsList() {
           defaultValue={selectionContest}
         />
       </FilterContainer>
-
-      <ParticipantsTable
-        columns={columns}
-        selectionContest={selectionContest}
-      />
+      <ParticipantDataContext.Provider value={dataContest}>
+        <ParticipantsTable
+          columns={columns}
+          selectionContest={selectionContest}
+        />
+      </ParticipantDataContext.Provider>
     </PageContainer>
   );
 }
