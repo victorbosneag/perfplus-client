@@ -12,6 +12,7 @@ import ContestCreate from "./pages/ContestCreate";
 
 const refreshSpeed = 10000;
 export const LoginContext = createContext(false);
+export const ParticipantDataContext = createContext({});
 
 function App() {
   const [isSignIn, setIsSignIn] = useState(false);
