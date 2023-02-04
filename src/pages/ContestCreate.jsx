@@ -1,5 +1,6 @@
 import React from 'react'
 import { contestcreate } from '../api/contestcreate.api'
+import InputCalendar from '../components/calendar'
 import CustomForm from '../components/formBox'
 import getToken from '../utils/gettoken.util'
 import formData from './ContestCreate.config'
@@ -22,7 +23,7 @@ function ContestCreate() {
   }
   return (
     <CustomForm formData={formData} title="Create Contest" buttonText="Create" submitFunction={handleSubmit}>
-      
+      <InputCalendar />
     </CustomForm>
   )
 }
