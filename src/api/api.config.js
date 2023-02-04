@@ -4,6 +4,7 @@ const routes = {
     contestget: "/api/contest/view",
     participantget: "/api/participant/list",
     contestcreate: "/api/contest/create",
+    contestlist: "/api/contest/list",
 }
 
 export default routes;
