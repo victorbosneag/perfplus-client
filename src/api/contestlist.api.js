@@ -1,8 +1,8 @@
 import routes from "./api.config";
 
-const url = "http://localhost:5000" + routes.contestcreate;
+const url = "http://localhost:5000" + routes.contestlist;
 
-export const getContest = async () => {
+export const listContest = async () => {
   try{
     const response = fetch(url, {
       method:"GET"

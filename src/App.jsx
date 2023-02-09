@@ -9,6 +9,7 @@ import { createContext, useEffect, useState } from "react";
 import loginCheck from "./utils/loggedin.util";
 import LogOut from "./pages/LogOut";
 import ContestCreate from "./pages/ContestCreate";
+import ContestList from "./pages/ContestList";
 
 const refreshSpeed = 10000;
 export const LoginContext = createContext(false);
@@ -36,6 +37,7 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="participants" element={<ParticipantsList />} />
           <Route path="logout" element={<LogOut />} />
+          <Route path="contestlist" element={<ContestList />} />
           <Route path="newcontest" element={isSignIn ? (<ContestCreate />): (<Login />)} />
           
         </Routes>

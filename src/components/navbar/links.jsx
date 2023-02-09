@@ -8,6 +8,7 @@ function NavbarLinks(props) {
     <LinkContainer extendedNavbar={props.extended}>
       <NavbarLink to="/">Home</NavbarLink>
       <NavbarLink to="/participants">Participants</NavbarLink>
+      <NavbarLink to="/contestlist">Contests</NavbarLink>
       
       {isSignIn ? <NavbarLink to="/newcontest">Create Contest</NavbarLink> : <></>}
     </LinkContainer>
