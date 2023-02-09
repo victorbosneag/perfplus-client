@@ -9,11 +9,6 @@ const formData = [
       name: "subject",
       type: "text",
     },
-    {
-        label: "Year",
-        name: "year",
-        type: "text",
-    },
   ];
   
   export default formData;
