@@ -9,7 +9,7 @@ export const TableBorder = styled.div`
   border-width: 4px;
   overflow: hidden;
   white-space: nowrap;
-
+  width:fit-content;
   
 
 `;
@@ -17,7 +17,7 @@ export const TableStyled = styled.table`
   border-collapse: collapse;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
-  
+  width:fit-content;
   
   overflow-x:auto;
   overflow-y:auto;
