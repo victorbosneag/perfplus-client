@@ -14,6 +14,7 @@ function InputCalendar() {
   const [mark, setMark] = useState([]);
   const [info, setInfo] = useState([]);
   const [overlap, setOverlap] = useState([]);
+  const [selection, setSelection] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const contestInfo = await getContest();
@@ -28,6 +29,7 @@ function InputCalendar() {
   }, []);
   return (
     <CalendarContainer>
+      <input type="hidden" name="date" value={selection}/>
       <FormEntryContainer>
         <FormLabel>Date</FormLabel>
 
@@ -40,6 +42,7 @@ function InputCalendar() {
             }
           }}
           onClickDay={(value, event) => {
+            setSelection(value);
             let ocuppied = false;
             let contests = [];
 
