@@ -37,8 +37,6 @@ function ParticipantsTable(props) {
               participantData.push(participantEntry[key]);
             }
           }
-          console.log(participantData);
-          console.log(contestList)
           const contestID = participantData[7];
           let contestName = "N/A";
           contestList.forEach(element => {
@@ -46,7 +44,6 @@ function ParticipantsTable(props) {
               contestName=element.name;
             }
           });
-          //const contestName = contestList[contestID].name;
           participantData = participantData.slice(0, 5);
           participantData.push(contestName)
           
