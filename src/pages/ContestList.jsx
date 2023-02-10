@@ -29,7 +29,7 @@ function ContestList() {
             date: contestEntry.date,
             isActive: contestEntry.isActive ? "Yes" : "No",
             ackMinister: contestEntry.ackMinister ? "Yes" : "No",
-            userid: contestEntry.userid,
+            username: contestEntry.username,
           };
         });
         const contestList = parsedContestData.map((contestEntry) => {
@@ -53,7 +53,7 @@ function ContestList() {
   return (
     
       <PageContainer>
-        <Table columns={columns} tableBody={tableBody} />
+        <Table columns={columns} tableBody={tableBody}  />
       </PageContainer>
     
   );
