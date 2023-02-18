@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { listContest } from "../api/contestlist.api";
-import Table from "../components/table";
+import { listContest } from "../../api/contestlist.api";
+import Table from "../../components/table";
 import { PageContainer } from "./ContestList.style";
 
 function ContestList() {
