@@ -10,6 +10,7 @@ import loginCheck from "./utils/loggedin.util";
 import LogOut from "./pages/LogOut";
 import ContestCreate from "./pages/ContestCreate";
 import ContestList from "./pages/ContestList";
+import ContestPage from "./pages/ContestPage";
 
 const refreshSpeed = 10000;
 export const LoginContext = createContext(false);
@@ -39,6 +40,7 @@ function App() {
           <Route path="logout" element={<LogOut />} />
           <Route path="contestlist" element={<ContestList />} />
           <Route path="newcontest" element={isSignIn ? (<ContestCreate />): (<Login />)} />
+          <Route path="contest/:id/" element={<ContestPage />} />
           
         </Routes>
       </Router>
