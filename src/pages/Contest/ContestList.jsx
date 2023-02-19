@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { listContest } from "../../api/contestlist.api";
 import Table from "../../components/table";
-import { PageContainer } from "./ContestList.style";
+import { ContestPageLink, PageContainer } from "./ContestList.style";
 
 function ContestList() {
   const [tableBody, setTableBody] = useState([]);
@@ -15,6 +15,7 @@ function ContestList() {
     "Is Active?",
     "Ministry Ack",
     "Created By",
+    "Test"
   ];
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +41,7 @@ function ContestList() {
               contestData.push(contestEntry[key]);
             }
           }
+          contestData.push(<ContestPageLink to={"/contest/" + contestEntry.id}>View Contest</ContestPageLink>)
           console.log(contestData);
           return contestData;
         });
