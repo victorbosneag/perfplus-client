@@ -1,8 +1,10 @@
 import React from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { findContest } from "../../api/contestfind.api";
+import { ContestContext } from "./ContestPage";
 import { PageContainer } from "./ContestPage.style";
 import { StyledTitle, TitleContainer } from "./ContestPage.style";
 
@@ -12,6 +14,7 @@ function ContestInfo() {
   const [date, setDate] = useState();
   const [subject, setSubject] = useState("None");
   const [createdBy, setCreatedBy] = useState("None");
+  const setContestSelected = useContext(ContestContext).setContestSelected;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +25,9 @@ function ContestInfo() {
       setCreatedBy(response.username);
     };
     fetchData();
-  }, [id]);
+    setContestSelected(id);
+  }, [id, setContestSelected]);
+
   return (
     <PageContainer>
       <TitleContainer>
