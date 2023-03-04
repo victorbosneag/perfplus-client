@@ -15,7 +15,7 @@ export const LoginTitle = styled.div`
 `;
 
 export const FormContainer = styled.form`
-  width: 400px;
+  min-width: 400px;
   //height: 600 px;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,7 @@ export const FormLabel = styled.label`
 export const FormInput = styled.input`
   width: 100%;
   height: 30px;
+  max-width: 300px;
   border-style: solid;
   border-color: green;
   border-width: 2px;
