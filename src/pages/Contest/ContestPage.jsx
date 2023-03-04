@@ -7,6 +7,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { LoginContext } from "../../App";
 import Option from "../../components/optionBar";
 import Login from "../Login";
+import AddParticipants from "./AddParticipants";
 import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
@@ -45,6 +46,7 @@ function ContestPage() {
       <Routes>
         <Route path="list" element={<ContestList />} />
         <Route path=":id" element={<ContestInfo />} />
+        <Route path=":id/register" element={<AddParticipants />} />
         <Route
           path="create"
           element={isSignIn ? <ContestCreate /> : <Login />}
