@@ -5,6 +5,7 @@ import { CustomContainer, NewFormInput } from "./style";
 
 function InputTable(props) {
   const columns = props.columns;
+  const columnIds = props.columnIds;
   const tableColumns = props.columns.concat([""]);
   const [tableBodyContent, setTableBodyContent] = useState([]);
   const handleRowAdd = () => {
@@ -56,13 +57,21 @@ function InputTable(props) {
           handleRowAdd();
         }}
       >
-        Test
+        Add
       </button>,
     ]);
-  console.log(inputRowBoxes);
   const tableBody = tableBodyContent.concat([inputRowBoxes]);
+  const contentValues = tableBodyContent.map((element)=>{
+    let row = {};
+    element.forEach((entry, index)=>{
+      row[columnIds[index]] = entry;
+    })
+    return row;
+  })
+  console.log(contentValues)
   return (
     <CustomContainer>
+      <input type="hidden" name="participants" value={JSON.stringify(contentValues)}></input>
       <Table columns={tableColumns} tableBody={tableBody} />
     </CustomContainer>
   );
