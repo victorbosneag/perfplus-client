@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { findContest } from "../../api/contestfind.api";
+import ParticipantsList from "../ParticipantsList";
 import { ContestContext } from "./ContestPage";
 import { PageContainer } from "./ContestPage.style";
 import { StyledTitle, TitleContainer } from "./ContestPage.style";
@@ -36,6 +37,7 @@ function ContestInfo() {
         <p>Contest date: {date}</p>
         <p>Created by: {createdBy}</p>
       </TitleContainer>
+      <ParticipantsList contest={name} />
     </PageContainer>
   );
 }

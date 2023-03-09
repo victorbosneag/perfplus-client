@@ -7,7 +7,7 @@ import { getContest } from "../api/contestget.api";
 import ParticipantsTable from "../components/participantTable";
 
 import { ParticipantDataContext } from "../App";
-function ParticipantsList() {
+function ParticipantsList(props) {
   const columns = [
     "ID",
     "First Name",
@@ -18,7 +18,13 @@ function ParticipantsList() {
   ];
   //use state and use effect for contest data
   const [dataContest, setData] = useState([]);
-  const [selectionContest, setSelectionContest] = useState("All");
+
+  let [selectionContest, setSelectionContest] = useState("All");
+  let hasContest = false;
+  if (props.contest) {
+    selectionContest = props.contest;
+    hasContest = true;
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,14 +50,19 @@ function ParticipantsList() {
 
   return (
     <PageContainer>
-      <FilterContainer>
-        <SelectComponent
-          data={dataContest}
-          onSelectChange={onSelectChange}
-          fieldName={"Contest"}
-          defaultValue={selectionContest}
-        />
-      </FilterContainer>
+      {hasContest ? (
+        <></>
+      ) : (
+        <FilterContainer>
+          <SelectComponent
+            data={dataContest}
+            onSelectChange={onSelectChange}
+            fieldName={"Contest"}
+            defaultValue={selectionContest}
+          />
+        </FilterContainer>
+      )}
+
       <ParticipantDataContext.Provider value={dataContest}>
         <ParticipantsTable
           columns={columns}
