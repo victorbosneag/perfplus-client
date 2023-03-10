@@ -8,6 +8,7 @@ import { LoginContext } from "../../App";
 import Option from "../../components/optionBar";
 import Login from "../Login";
 import AddParticipants from "./AddParticipants";
+import AddPost from "./AddPost";
 import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
@@ -22,8 +23,10 @@ function ContestPage() {
   let rightLinks = [{ route: "/contest/create", title: "Create Contest" }];
   let contestLeftLinks = [];
   const contestRightLinks = (contestId) => {
-
-    return [{ route: contestId + "/register", title: "Register Participants" }];
+    return [
+      { route: contestId + "/register", title: "Register Participants" },
+      { route: contestId + "/postcreate", title: "Create Post" },
+    ];
   };
   useEffect(() => {
     setContestSelected(0);
@@ -32,11 +35,11 @@ function ContestPage() {
     <ContestContext.Provider value={{ contestSelected, setContestSelected }}>
       <Option
         leftLinks={
-          contestSelected>0 ? leftLinks.concat(contestLeftLinks) : leftLinks
+          contestSelected > 0 ? leftLinks.concat(contestLeftLinks) : leftLinks
         }
         rightLinks={
           isSignIn
-            ? contestSelected>0
+            ? contestSelected > 0
               ? rightLinks.concat(contestRightLinks(contestSelected))
               : rightLinks
             : []
@@ -47,6 +50,7 @@ function ContestPage() {
         <Route path="list" element={<ContestList />} />
         <Route path=":id" element={<ContestInfo />} />
         <Route path=":id/register" element={<AddParticipants />} />
+        <Route path=":id/postcreate" element={<AddPost />} />
         <Route
           path="create"
           element={isSignIn ? <ContestCreate /> : <Login />}
