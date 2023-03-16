@@ -12,6 +12,7 @@ import AddPost from "./AddPost";
 import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
+import RankParticipants from "./RankParticipants";
 
 export const ContestContext = createContext(false);
 
@@ -25,6 +26,7 @@ function ContestPage() {
   const contestRightLinks = (contestId) => {
     return [
       { route: contestId + "/register", title: "Register Participants" },
+      { route: contestId + "/rank", title: "Rank Participants" },
       { route: contestId + "/postcreate", title: "Create Post" },
     ];
   };
@@ -50,6 +52,7 @@ function ContestPage() {
         <Route path="list" element={<ContestList />} />
         <Route path=":id" element={<ContestInfo />} />
         <Route path=":id/register" element={<AddParticipants />} />
+        <Route path=":id/rank" element={<RankParticipants />} />
         <Route path=":id/postcreate" element={<AddPost />} />
         <Route
           path="create"
