@@ -9,6 +9,7 @@ import { createContext, useEffect, useState } from "react";
 import loginCheck from "./utils/loggedin.util";
 import LogOut from "./pages/LogOut";
 import ContestPage from "./pages/Contest/ContestPage";
+import { ProSidebarProvider } from "react-pro-sidebar";
 
 const refreshSpeed = 10000;
 export const LoginContext = createContext(false);
@@ -18,29 +19,29 @@ function App() {
   const [isSignIn, setIsSignIn] = useState(false);
   useEffect(() => {
     setIsSignIn(loginCheck());
-    
+
     const interval = setInterval(() => {
       console.log(localStorage.getItem("token"));
       setIsSignIn(loginCheck());
     }, refreshSpeed);
     return () => clearInterval(interval);
-    
   }, []);
   return (
-    <LoginContext.Provider value={{isSignIn, setIsSignIn}}>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route index element={<ParticipantsList />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="participants" element={<ParticipantsList />} />
-          <Route path="logout" element={<LogOut />} />
-          <Route path="contest/*" element={<ContestPage />} />
-          
-        </Routes>
-      </Router>
-    </LoginContext.Provider>
+    <ProSidebarProvider>
+      <LoginContext.Provider value={{ isSignIn, setIsSignIn }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route index element={<ParticipantsList />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="participants" element={<ParticipantsList />} />
+            <Route path="logout" element={<LogOut />} />
+            <Route path="contest/*" element={<ContestPage />} />
+          </Routes>
+        </Router>
+      </LoginContext.Provider>
+    </ProSidebarProvider>
   );
 }
 export default App;
