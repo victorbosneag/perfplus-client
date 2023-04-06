@@ -14,14 +14,14 @@ export const StyledTitle = styled.div`
   font-size: xx-large;
   font-family: Arial, Helvetica, sans-serif;
   color: fuchsia;
-  margin: 20px;
+  margin: 10px;
 `;
 
 export const TitleContainer = styled.div`
   display:flex;
   flex-direction: column;
   padding: 10px;
-  margin-bottom:30px;
+  margin-bottom:20px;
   border-width: 4px;
   border-style:solid;
   border-radius: 5px;

@@ -12,6 +12,7 @@ import AddPost from "./AddPost";
 import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
+import InfoPage from "./ContestPages/InfoPage";
 import RankParticipants from "./RankParticipants";
 
 export const ContestContext = createContext(false);
@@ -58,6 +59,7 @@ function ContestPage() {
           path="create"
           element={isSignIn ? <ContestCreate /> : <Login />}
         />
+        <Route path=":id/subjects" element={<InfoPage />} />
       </Routes>
     </ContestContext.Provider>
   );
