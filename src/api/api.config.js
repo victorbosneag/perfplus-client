@@ -8,7 +8,8 @@ const routes = {
     contestfind: "/api/contest/find",
     addparticipant: "/api/participant/create",
     addpost: "/api/post/create",
-    getconfig: "/api/contestcontent/config"
+    getconfig: "/api/contestcontent/config",
+    getfile: "/api/contestcontent/get"
 }
 
 export default routes;
