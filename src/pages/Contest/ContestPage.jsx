@@ -6,14 +6,8 @@ import { useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { LoginContext } from "../../App";
 import Option from "../../components/optionBar";
-import Login from "../Login";
-import AddParticipants from "./AddParticipants";
-import AddPost from "./AddPost";
-import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
-import InfoPage from "./ContestPages/InfoPage";
-import RankParticipants from "./RankParticipants";
 
 export const ContestContext = createContext(false);
 
@@ -51,15 +45,8 @@ function ContestPage() {
 
       <Routes>
         <Route path="list" element={<ContestList />} />
-        <Route path=":id" element={<ContestInfo />} />
-        <Route path=":id/register" element={<AddParticipants />} />
-        <Route path=":id/rank" element={<RankParticipants />} />
-        <Route path=":id/postcreate" element={<AddPost />} />
-        <Route
-          path="create"
-          element={isSignIn ? <ContestCreate /> : <Login />}
-        />
-        <Route path=":id/subjects" element={<InfoPage />} />
+        <Route path=":id/*" element={<ContestInfo />} />
+        
       </Routes>
     </ContestContext.Provider>
   );
