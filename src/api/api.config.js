@@ -9,7 +9,8 @@ const routes = {
     addparticipant: "/api/participant/create",
     addpost: "/api/post/create",
     getconfig: "/api/contestcontent/config",
-    getfile: "/api/contestcontent/get"
+    getfile: "/api/contestcontent/get",
+    addfile: "/api/contestcontent/upload"
 }
 
 export default routes;
