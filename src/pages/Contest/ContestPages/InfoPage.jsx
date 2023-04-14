@@ -13,9 +13,11 @@ import getToken from "../../../utils/gettoken.util";
 import { addfile } from "../../../api/addfile.api";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-function InfoPage() {
-  const contest = 3;
-  const type = "subjects";
+function InfoPage(props) {
+  const contest = props.contest;
+  const type = props.type;
+  console.log(contest)
+  console.log(type)
   const [documentObject, setDocumentObject] = useState();
   const [numPages, setNumPages] = useState(null);
 
@@ -26,7 +28,7 @@ function InfoPage() {
       setDocumentObject(response);
     };
     fetchData();
-  }, []);
+  }, [contest, type]);
 
   const isSignIn = useContext(LoginContext).isSignIn;
   const handleSubmit = async (event) => {
@@ -39,7 +41,7 @@ function InfoPage() {
       const requestData = {
         token: getToken(),
         contest: contest,
-        type: "subjects",
+        type: type,
         fileData: fileBase64,
       };
       const response = await addfile(requestData);

@@ -81,7 +81,11 @@ function ContestInfo() {
           path="create"
           element={isSignIn ? <ContestCreate /> : <Login />}
         />
-        <Route path="subjects" element={<InfoPage />} />
+        {contestMenus.map((element) => {
+            return (
+              <Route path={element.route} element={<InfoPage contest={id} type={element.route} />} />
+            );
+          })}
       </Routes>
     </SidebarContentContainer>
   );
