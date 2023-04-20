@@ -5,7 +5,12 @@ import { useContext } from "react";
 import { Document, Page } from "react-pdf";
 import { getFile } from "../../../api/getfile.api";
 import { LoginContext } from "../../../App";
-import { DocContainer, InfoContainer } from "./InfoPage.style";
+import {
+  DocContainer,
+  InfoContainer,
+  InfoForm,
+  InfoTitle,
+} from "./InfoPage.style";
 import { pdfjs } from "react-pdf";
 import { SubmitButton } from "../../../components/formBox/style";
 import convertToBase64 from "../../../utils/convertToBase64.util";
@@ -16,8 +21,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 function InfoPage(props) {
   const contest = props.contest;
   const type = props.type;
-  console.log(contest)
-  console.log(type)
+  console.log(contest);
+  console.log(type);
   const [documentObject, setDocumentObject] = useState();
   const [numPages, setNumPages] = useState(null);
 
@@ -51,11 +56,12 @@ function InfoPage(props) {
   const pdfProps = { data: documentObject };
   return (
     <InfoContainer>
+      <InfoTitle>{type}</InfoTitle>
       {isSignIn ? (
-        <form onSubmit={handleSubmit}>
+        <InfoForm onSubmit={handleSubmit}>
           <input type="file" />
           <SubmitButton type="input">Submit</SubmitButton>
-        </form>
+        </InfoForm>
       ) : (
         <></>
       )}
