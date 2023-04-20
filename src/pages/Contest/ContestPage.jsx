@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { LoginContext } from "../../App";
 import Option from "../../components/optionBar";
+import ContestCreate from "./ContestCreate";
 import ContestInfo from "./ContestInfo";
 import ContestList from "./ContestList";
 
@@ -45,8 +46,8 @@ function ContestPage() {
 
       <Routes>
         <Route path="list" element={<ContestList />} />
-        <Route path=":id/*" element={<ContestInfo />} />
-        
+        <Route path="create" element={<ContestCreate />} />
+        <Route path=":id/*" element={<ContestInfo />} />  
       </Routes>
     </ContestContext.Provider>
   );
