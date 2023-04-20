@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import Table from "../table";
-import { CustomContainer, NewFormInput } from "./style";
+import { CustomContainer, FileInputContainer, Line, NewFormInput, Subtitle } from "./style";
+import { csvParse } from "d3";
 
 function InputTable(props) {
   const columns = props.columns;
@@ -68,10 +69,43 @@ function InputTable(props) {
     })
     return row;
   })
+  const handleFileSubmit = async (event) =>{
+    event.preventDefault();
+    const selectedFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener(
+      "load",
+      () => {
+        // this will then display a text file
+        const csvText = reader.result;
+        const csvRes = csvParse(csvText);
+        const csvResArray = csvRes.map((element)=>{
+          return Object.values(element)
+        })
+        console.log(csvResArray)
+        setTableBodyContent(csvResArray)
+      },
+      false
+    );
+  
+    if (selectedFile.type === "text/csv") {
+      reader.readAsText(selectedFile);
+    }
+
+  
+    console.log(selectedFile)
+  }
   console.log(contentValues)
+  console.log(tableBodyContent)
   return (
     <CustomContainer>
       <input type="hidden" name="participants" value={JSON.stringify(contentValues)}></input>
+      <FileInputContainer>
+        <Subtitle>Import from file</Subtitle>
+        <input type="file" onChange={handleFileSubmit}/>
+      </FileInputContainer>
+      <Line></Line>
+      <Subtitle>Import with table</Subtitle>
       <Table columns={tableColumns} tableBody={tableBody} />
     </CustomContainer>
   );
