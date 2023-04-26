@@ -26,6 +26,7 @@ function ContestInfo() {
   const [subject, setSubject] = useState("None");
   const [createdBy, setCreatedBy] = useState("None");
   const [contestMenus, setContestMenus] = useState([]);
+  const [loadDone, setLoadDone] = useState(false);
   const setContestSelected = useContext(ContestContext).setContestSelected;
 
   useEffect(() => {
@@ -35,6 +36,9 @@ function ContestInfo() {
       setDate(responseContest.date);
       setSubject(responseContest.subject);
       setCreatedBy(responseContest.username);
+      if(responseContest.contestName){
+        setLoadDone(true);
+      }
       const responseConfig = await getConfig(id);
       let displayRoutes = [];
       if (responseConfig.hasAnswers) {
@@ -50,7 +54,9 @@ function ContestInfo() {
   }, [id, setContestSelected]);
 
   return (
-    <SidebarContentContainer>
+    <>
+    {loadDone? (
+      <SidebarContentContainer>
       <Sidebar>
         <Menu>
           {contestMenus.map((element) => {
@@ -87,7 +93,8 @@ function ContestInfo() {
             );
           })}
       </Routes>
-    </SidebarContentContainer>
+    </SidebarContentContainer>): (<div>Loading</div>)}
+    </>
   );
 }
 
