@@ -10,6 +10,7 @@ import loginCheck from "./utils/loggedin.util";
 import LogOut from "./pages/LogOut";
 import ContestPage from "./pages/Contest/ContestPage";
 import { ProSidebarProvider } from "react-pro-sidebar";
+import UserPage from "./pages/User/UserPage";
 
 const refreshSpeed = 10000;
 export const LoginContext = createContext(false);
@@ -38,6 +39,7 @@ function App() {
             <Route path="participants" element={<ParticipantsList />} />
             <Route path="logout" element={<LogOut />} />
             <Route path="contest/*" element={<ContestPage />} />
+            {isSignIn ? <Route path="user/*" element={<UserPage />} /> : <></>}
           </Routes>
         </Router>
       </LoginContext.Provider>

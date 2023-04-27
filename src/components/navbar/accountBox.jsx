@@ -12,12 +12,13 @@ function NavbarAccount(props) {
         <NavbarLink to="/signup">Sign Up</NavbarLink>
       </LinkContainer>
     );
-  }else{
-    return(
+  } else {
+    return (
       <LinkContainer extendedNavbar={props.extended}>
         <NavbarLink to="/logout">Log Out</NavbarLink>
+        <NavbarLink to="/user">Profile Info</NavbarLink>
       </LinkContainer>
-    )
+    );
   }
 }
 
