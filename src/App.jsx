@@ -39,7 +39,7 @@ function App() {
             <Route path="participants" element={<ParticipantsList />} />
             <Route path="logout" element={<LogOut />} />
             <Route path="contest/*" element={<ContestPage />} />
-            {isSignIn ? <Route path="user/*" element={<UserPage />} /> : <></>}
+            <Route path="user/*" element={<UserPage />} />
           </Routes>
         </Router>
       </LoginContext.Provider>
