@@ -18,7 +18,7 @@ export const TableStyled = styled.table`
   display: block;
   font-family: Arial, Helvetica, sans-serif;
   width:fit-content;
-  
+  height:${(props) => (props.height ? props.height: "fit-content")};
   overflow-x:auto;
   overflow-y:auto;
 `;
@@ -38,6 +38,7 @@ export const TableEntry = styled.td`
   text-align: left;
   border-right: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
+  min-width: 100px;
 `;
 export const TableHeading = styled.th`
   font-size: 22px;

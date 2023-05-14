@@ -12,7 +12,7 @@ function Table(props) {
   let count = 0;
   return (
     <TableBorder>
-      <TableStyled>
+      <TableStyled height={props.height}>
         <TableHeadStyled>
           <TableRowStyled>
             <TableHeading></TableHeading>
