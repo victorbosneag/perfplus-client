@@ -17,6 +17,7 @@ import Login from "../Login";
 import ContestCreate from "./ContestCreate";
 import InfoPage from "./ContestPages/InfoPage";
 import { LoginContext } from "../../App";
+import ContestPosts from "./ContestPages/ContestPosts";
 
 function ContestInfo() {
   const isSignIn = useContext(LoginContext).isSignIn;
@@ -83,6 +84,7 @@ function ContestInfo() {
         <Route path="register" element={<AddParticipants />} />
         <Route path="rank" element={<RankParticipants />} />
         <Route path="postcreate" element={<AddPost />} />
+        <Route path="posts/*" element={<ContestPosts contest={id}/>} />
         <Route
           path="create"
           element={isSignIn ? <ContestCreate /> : <Login />}
