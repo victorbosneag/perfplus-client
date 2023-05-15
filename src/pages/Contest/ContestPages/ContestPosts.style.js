@@ -16,5 +16,14 @@ export const PostTitle = styled(LoginTitle)`
 
 export const PostLink = styled(Link)`
   color: black;
-  
+`;
+
+export const Line = styled.div`
+  display:flex;
+  margin-top:10vh;
+  width:100%;
+  height:0px;
+  border-width:2px;
+  border-color:gray;
+  border-top-style:solid;
 `;

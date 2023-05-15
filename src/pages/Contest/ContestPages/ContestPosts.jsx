@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { getposts } from "../../../api/getposts.api";
 import Table from "../../../components/table";
-import { PostContainer, PostLink, PostTitle } from "./ContestPosts.style";
+import { Line, PostContainer, PostLink, PostTitle } from "./ContestPosts.style";
 import PostPage from "./PostPage";
 
 function ContestPosts(props) {
@@ -30,6 +30,7 @@ function ContestPosts(props) {
     <PostContainer>
       <PostTitle>Posts</PostTitle>
       <Table columns={columnData} tableBody={tableData} height="500px"/>
+      <Line />
       <Routes>
         <Route path=":postid" element={<PostPage />} />
       </Routes>
