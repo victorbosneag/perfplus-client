@@ -3,22 +3,24 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getpost } from "../../../api/getpost.api";
 import { PageContainer, PostTitle } from "./PostPage.style";
+import Markdown from "markdown-to-jsx";
 
 function PostPage() {
   const { postid } = useParams();
-  const [content, setContent] = useState({})
+  const [content, setContent] = useState({body:"Loading"})
   useEffect(()=>{
     const fetchData = async()=>{
       const response = await getpost(postid);
       setContent(response)
     }
     fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  },[postid])
+  console.log(content)
   return (
     <PageContainer>
       
       <PostTitle>{content.title}</PostTitle>
+      <Markdown>{content.body}</Markdown>
     </PageContainer>
   );
 }
