@@ -12,7 +12,8 @@ const routes = {
     getfile: "/api/contestcontent/get",
     addfile: "/api/contestcontent/upload",
     userinfo: "/api/user/info",
-    getposts: "/api/post/list"
+    getposts: "/api/post/list",
+    getpost: "/api/post/find",
     
 }
 
