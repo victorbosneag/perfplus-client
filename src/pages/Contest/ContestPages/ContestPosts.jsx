@@ -29,7 +29,7 @@ function ContestPosts(props) {
   return (
     <PostContainer>
       <PostTitle>Posts</PostTitle>
-      <Table columns={columnData} tableBody={tableData} height="500px"/>
+      <Table columns={columnData} tableBody={tableData} height="300px"/>
       <Line />
       <Routes>
         <Route path=":postid" element={<PostPage />} />
