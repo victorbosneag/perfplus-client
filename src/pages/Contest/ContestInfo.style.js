@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SidebarContentContainer = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: row;
-`;
+`

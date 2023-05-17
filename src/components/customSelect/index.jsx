@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { StyledSelect } from "./style";
+import React, { useEffect, useState } from 'react'
+import { StyledSelect } from './style'
 
-function SelectComponent(props) {
-  const data = props.data;
-  const fieldName = props.fieldName;
-  const [selectedData, updateSelectedData] = useState("All");
-  const onSelectChange = props.onSelectChange;
+function SelectComponent (props) {
+  const data = props.data
+  const fieldName = props.fieldName
+  const [selectedData, updateSelectedData] = useState('All')
+  const onSelectChange = props.onSelectChange
   useEffect(() => {
     if (onSelectChange) {
-      onSelectChange({ selection: selectedData, name: fieldName });
+      onSelectChange({ selection: selectedData, name: fieldName })
     }
-  }, [selectedData, onSelectChange, fieldName]);
+  }, [selectedData, onSelectChange, fieldName])
 
   const handleChange = (event) => {
     if (event.target.value === fieldName) {
-      updateSelectedData("All");
+      updateSelectedData('All')
     } else {
-      updateSelectedData(event.target.value);
+      updateSelectedData(event.target.value)
     }
-  };
+  }
   return (
     <StyledSelect name={fieldName} onChange={handleChange} value={props.defaultValue}>
       <option>{fieldName}</option>
@@ -30,10 +30,10 @@ function SelectComponent(props) {
           <option key={data.name} value={data.name}>
             {data.name}
           </option>
-        );
+        )
       })}
     </StyledSelect>
-  );
+  )
 }
 
-export default SelectComponent;
+export default SelectComponent

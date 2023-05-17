@@ -1,13 +1,13 @@
-import logout from "./logout.util";
+import logout from './logout.util'
 
 const loginCheck = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')
   if (token) {
-    return true;
+    return true
   } else {
-    logout();
-    return false;
+    logout()
+    return false
   }
-};
+}
 
-export default loginCheck;
+export default loginCheck

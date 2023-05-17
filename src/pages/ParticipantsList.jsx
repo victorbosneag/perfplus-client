@@ -1,51 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
-import SelectComponent from "../components/customSelect";
-import { FilterContainer, PageContainer } from "./ParticipantsList.style";
-import { getContest } from "../api/contestget.api";
+import SelectComponent from '../components/customSelect'
+import { FilterContainer, PageContainer } from './ParticipantsList.style'
+import { getContest } from '../api/contestget.api'
 
-import ParticipantsTable from "../components/participantTable";
+import ParticipantsTable from '../components/participantTable'
 
-import { ParticipantDataContext } from "../App";
-function ParticipantsList(props) {
+import { ParticipantDataContext } from '../App'
+
+function ParticipantsList (props) {
   const columns = [
-    "ID",
-    "First Name",
-    "Last Name",
-    "Result",
-    "Award",
-    "Contest",
-  ];
+    'ID',
+    'First Name',
+    'Last Name',
+    'Result',
+    'Award',
+    'Contest',
+  ]
   //use state and use effect for contest data
-  const [dataContest, setData] = useState([]);
+  const [dataContest, setData] = useState([])
 
-  let [selectionContest, setSelectionContest] = useState("All");
-  let hasContest = false;
+  let [selectionContest, setSelectionContest] = useState('All')
+  let hasContest = false
   if (props.contest) {
-    selectionContest = props.contest;
-    hasContest = true;
+    selectionContest = props.contest
+    hasContest = true
   }
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getContest();
+        const response = await getContest()
         const contestList = response.map((contestEntry) => {
           return {
             id: contestEntry.id,
             name: contestEntry.contestName,
-          };
-        });
-        console.log(response);
-        setData(contestList);
+          }
+        })
+        console.log(response)
+        setData(contestList)
       } catch (err) {
-        console.log(err);
+        console.log(err)
       }
-    };
-    fetchData();
-  }, []);
+    }
+    fetchData()
+  }, [])
 
-  function onSelectChange(event) {
-    setSelectionContest(event.selection);
+  function onSelectChange (event) {
+    setSelectionContest(event.selection)
   }
 
   return (
@@ -57,7 +58,7 @@ function ParticipantsList(props) {
           <SelectComponent
             data={dataContest}
             onSelectChange={onSelectChange}
-            fieldName={"Contest"}
+            fieldName={'Contest'}
             defaultValue={selectionContest}
           />
         </FilterContainer>
@@ -70,7 +71,7 @@ function ParticipantsList(props) {
         />
       </ParticipantDataContext.Provider>
     </PageContainer>
-  );
+  )
 }
 
-export default ParticipantsList;
+export default ParticipantsList

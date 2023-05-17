@@ -1,34 +1,30 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { createContext } from "react";
-import { useContext } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { LoginContext } from "../../App";
-import Option from "../../components/optionBar";
-import ContestCreate from "./ContestCreate";
-import ContestInfo from "./ContestInfo";
-import ContestList from "./ContestList";
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { LoginContext } from '../../App'
+import Option from '../../components/optionBar'
+import ContestCreate from './ContestCreate'
+import ContestInfo from './ContestInfo'
+import ContestList from './ContestList'
 
-export const ContestContext = createContext(false);
+export const ContestContext = createContext(false)
 
-function ContestPage() {
-  const [contestSelected, setContestSelected] = useState(0);
-  const isSignIn = useContext(LoginContext).isSignIn;
-  const location = useLocation();
-  let leftLinks = [{ route: "/contest/list", title: "List" }];
-  let rightLinks = [{ route: "/contest/create", title: "Create Contest" }];
-  let contestLeftLinks = [];
+function ContestPage () {
+  const [contestSelected, setContestSelected] = useState(0)
+  const isSignIn = useContext(LoginContext).isSignIn
+  const location = useLocation()
+  let leftLinks = [{ route: '/contest/list', title: 'List' }]
+  let rightLinks = [{ route: '/contest/create', title: 'Create Contest' }]
+  let contestLeftLinks = []
   const contestRightLinks = (contestId) => {
     return [
-      { route: contestId + "/register", title: "Register Participants" },
-      { route: contestId + "/rank", title: "Rank Participants" },
-      { route: contestId + "/postcreate", title: "Create Post" },
-    ];
-  };
+      { route: contestId + '/register', title: 'Register Participants' },
+      { route: contestId + '/rank', title: 'Rank Participants' },
+      { route: contestId + '/postcreate', title: 'Create Post' },
+    ]
+  }
   useEffect(() => {
-    setContestSelected(0);
-  }, [setContestSelected, location]);
+    setContestSelected(0)
+  }, [setContestSelected, location])
   return (
     <ContestContext.Provider value={{ contestSelected, setContestSelected }}>
       <Option
@@ -45,12 +41,12 @@ function ContestPage() {
       />
 
       <Routes>
-        <Route path="list" element={<ContestList />} />
-        <Route path="create" element={<ContestCreate />} />
-        <Route path=":id/*" element={<ContestInfo />} />  
+        <Route path="list" element={<ContestList/>}/>
+        <Route path="create" element={<ContestCreate/>}/>
+        <Route path=":id/*" element={<ContestInfo/>}/>
       </Routes>
     </ContestContext.Provider>
-  );
+  )
 }
 
-export default ContestPage;
+export default ContestPage

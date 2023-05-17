@@ -1,32 +1,31 @@
-import React from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import moment from "moment";
-import { CalendarContainer } from "./style";
-import { useState } from "react";
-import { useEffect } from "react";
-import { getContest } from "../../api/contestget.api";
-import { FormLabel } from "../formBox/style";
-import { FormEntryContainer } from "./style";
-import ContestTable from "./contestTable";
+// noinspection JSUnusedLocalSymbols
 
-function InputCalendar() {
-  const [mark, setMark] = useState([]);
-  const [info, setInfo] = useState([]);
-  const [overlap, setOverlap] = useState([]);
-  const [selection, setSelection] = useState("");
+import React, { useEffect, useState } from 'react'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
+import moment from 'moment'
+import { CalendarContainer, FormEntryContainer } from './style'
+import { getContest } from '../../api/contestget.api'
+import { FormLabel } from '../formBox/style'
+import ContestTable from './contestTable'
+
+function InputCalendar () {
+  const [mark, setMark] = useState([])
+  const [info, setInfo] = useState([])
+  const [overlap, setOverlap] = useState([])
+  const [selection, setSelection] = useState('')
   useEffect(() => {
     const fetchData = async () => {
-      const contestInfo = await getContest();
-      setInfo(contestInfo);
-      let contestDates = [];
+      const contestInfo = await getContest()
+      setInfo(contestInfo)
+      let contestDates = []
       contestInfo.forEach((element) => {
-        contestDates.push(moment(element.date).format("DD-MM-YYYY"));
-      });
-      setMark(contestDates);
-    };
-    fetchData();
-  }, []);
+        contestDates.push(moment(element.date).format('DD-MM-YYYY'))
+      })
+      setMark(contestDates)
+    }
+    fetchData()
+  }, [])
   return (
     <CalendarContainer>
       <input type="hidden" name="date" value={selection}/>
@@ -37,35 +36,36 @@ function InputCalendar() {
           width="500px"
           calendarType="US"
           tileClassName={({ date, view }) => {
-            if (mark.find((x) => x === moment(date).format("DD-MM-YYYY"))) {
-              return "highlight";
+            if (mark.find((x) => x === moment(date).format('DD-MM-YYYY'))) {
+              return 'highlight'
             }
           }}
           onClickDay={(value, event) => {
-            setSelection(value);
-            let ocuppied = false;
-            let contests = [];
+            setSelection(value)
+            let ocuppied = false
+            let contests = []
 
             info.forEach((element) => {
-              if (element.date === moment(value).format("YYYY-MM-DD")) {
-                ocuppied = true;
-                contests.push(element);
-                console.log(contests);
+              if (element.date === moment(value).format('YYYY-MM-DD')) {
+                ocuppied = true
+                contests.push(element)
+                console.log(contests)
               }
-            });
-            setOverlap(contests);
+            })
+            setOverlap(contests)
             if (ocuppied) {
-              console.log("Choose another date");
-              console.log(overlap);
+              console.log('Choose another date')
+              console.log(overlap)
             }
           }}
         />
       </FormEntryContainer>
-      
-      {overlap.length>0?<ContestTable contests={overlap} />: <></>}
-      
+
+      {overlap.length > 0 ? <ContestTable contests={overlap}/> : <></>}
+
     </CalendarContainer>
-  );
+  )
 }
+
 //moment(date).format("DD-MM-YYYY")
-export default InputCalendar;
+export default InputCalendar

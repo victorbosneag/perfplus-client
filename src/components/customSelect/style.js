@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledSelect = styled.select`
   margin: 10px;
@@ -11,4 +11,4 @@ export const StyledSelect = styled.select`
   color: green;
   background-color: #eee;
   border-radius: 5px;
-`;
+`

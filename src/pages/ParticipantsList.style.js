@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PageContainer = styled.div`
   display: flex;
@@ -9,12 +9,12 @@ export const PageContainer = styled.div`
   min-height: 80vh;
   padding: 50px;
   box-sizing: border-box;
-`;
+`
 
 export const FilterContainer = styled.div`
-  display:flex;
-  margin-bottom:30px;
+  display: flex;
+  margin-bottom: 30px;
   border-width: 4px;
-  border-style:solid;
-  align-items:center;
-`;
+  border-style: solid;
+  align-items: center;
+`

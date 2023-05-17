@@ -1,8 +1,7 @@
-import  ParticipantsList  from "../ParticipantsList";
-import { PageContainer } from "./ContestPage.style";
-import { StyledTitle, TitleContainer } from "./ContestPage.style";
+import ParticipantsList from '../ParticipantsList'
+import { PageContainer, StyledTitle, TitleContainer } from './ContestPage.style'
 
-function ContestOverview(props) {
+function ContestOverview (props) {
   return (
     <PageContainer>
       <TitleContainer>
@@ -11,9 +10,9 @@ function ContestOverview(props) {
         <p>Contest date: {props.date}</p>
         <p>Created by: {props.createdBy}</p>
       </TitleContainer>
-      <ParticipantsList contest={props.name} />
+      <ParticipantsList contest={props.name}/>
     </PageContainer>
-  );
+  )
 }
 
-export default ContestOverview;
+export default ContestOverview

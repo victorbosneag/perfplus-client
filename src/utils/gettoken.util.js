@@ -1,14 +1,14 @@
-import logout from "./logout.util";
+import logout from './logout.util'
 
 const getToken = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')
   if (token) {
-    const tokenVal = JSON.parse(token);
-    return tokenVal.token;
+    const tokenVal = JSON.parse(token)
+    return tokenVal.token
   } else {
-    logout();
-    return false;
+    logout()
+    return false
   }
-};
+}
 
-export default getToken;
+export default getToken

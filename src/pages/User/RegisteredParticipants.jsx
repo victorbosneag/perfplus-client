@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RegisteredParticipants() {
+function RegisteredParticipants () {
   return (
     <div>RegisteredParticipants</div>
   )

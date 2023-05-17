@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PageContainer = styled.div`
   display: flex;
@@ -9,4 +9,4 @@ export const PageContainer = styled.div`
   min-height: 80vh;
   padding: 50px;
   box-sizing: border-box;
-`;
+`

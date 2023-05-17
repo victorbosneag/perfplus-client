@@ -1,19 +1,19 @@
 const formData = [
   {
-    label: "Username",
-    name: "username",
-    type: "text"
+    label: 'Username',
+    name: 'username',
+    type: 'text'
   },
   {
-    label: "Email",
-    name: "email",
-    type: "text",
+    label: 'Email',
+    name: 'email',
+    type: 'text',
   },
   {
-    label: "Password",
-    name: "password",
-    type: "password",
+    label: 'Password',
+    name: 'password',
+    type: 'password',
   },
-];
+]
 
-export default formData;
+export default formData

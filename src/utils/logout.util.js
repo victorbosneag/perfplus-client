@@ -1,9 +1,9 @@
 const logout = () => {
   try {
-    localStorage.clear();
+    localStorage.clear()
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
-};
+}
 
-export default logout;
+export default logout

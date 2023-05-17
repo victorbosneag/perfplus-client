@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react'
 import {
   FormContainer,
-  FormLabel,
   FormEntryContainer,
   FormInput,
+  FormLabel,
   LoginContainer,
   LoginTitle,
   SubmitButton,
-} from "./style";
+} from './style'
 
-function CustomForm(props) {
+function CustomForm (props) {
   return (
     <LoginContainer>
       <LoginTitle>{props.title}</LoginTitle>
-      <FormContainer onSubmit={props.submitFunction} autoComplete={"off"}>
+      <FormContainer onSubmit={props.submitFunction} autoComplete={'off'}>
         {props.formData.map((data) => {
           return (
             <FormEntryContainer>
               <FormLabel>{data.label}</FormLabel>
               <FormInput name={data.name} type={data.type}></FormInput>
             </FormEntryContainer>
-          );
+          )
         })}
         {props.children}
         <SubmitButton type="input">{props.buttonText}</SubmitButton>
       </FormContainer>
     </LoginContainer>
-  );
+  )
 }
 
-export default CustomForm;
+export default CustomForm

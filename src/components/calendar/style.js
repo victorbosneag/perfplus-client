@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const CalendarContainer = styled.div`
   .highlight {
     background: pink;
   }
+
   .react-calendar {
     border-style: solid;
     width: 320px;
@@ -13,7 +14,7 @@ export const CalendarContainer = styled.div`
     padding: 10px;
     box-sizing: border-box;
   }
-`;
+`
 export const FormEntryContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,12 +22,12 @@ export const FormEntryContainer = styled.div`
   width: 90%;
   margin-top: 10px;
   margin-bottom: 10px;
-`;
+`
 
 export const ContestTableTitle = styled.div`
-  margin-bottom:10px;
+  margin-bottom: 10px;
   font-size: large;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: magenta;
 
-`;
+`

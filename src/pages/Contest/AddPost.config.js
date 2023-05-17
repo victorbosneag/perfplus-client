@@ -1,9 +1,9 @@
 const formData = [
   {
-    label: "Title",
-    name: "title",
-    type: "text",
+    label: 'Title',
+    name: 'title',
+    type: 'text',
   }
-];
+]
 
-export default formData;
+export default formData

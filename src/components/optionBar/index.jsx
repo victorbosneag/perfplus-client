@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 import {
   DropdownLinkContainer,
@@ -11,11 +11,11 @@ import {
   NavbarLinkContainer,
   OpenLinksButton,
   RightContainer,
-} from "../navbar/style";
-import { OptionBarContainer } from "./style";
+} from '../navbar/style'
+import { OptionBarContainer } from './style'
 
-function OptionBar({ leftLinks, rightLinks }) {
-  const [extendedNavbar, setExtendedNavbar] = useState(false);
+function OptionBar ({ leftLinks, rightLinks }) {
+  const [extendedNavbar, setExtendedNavbar] = useState(false)
   return (
     <OptionBarContainer extendedNavbar={extendedNavbar}>
       <NavbarInnerContainer>
@@ -31,7 +31,7 @@ function OptionBar({ leftLinks, rightLinks }) {
         <RightContainer>
           <OpenLinksButton
             onClick={() => {
-              setExtendedNavbar((curr) => !curr);
+              setExtendedNavbar((curr) => !curr)
             }}
           >
             {extendedNavbar ? <>&#10005;</> : <>&#8801;</>}
@@ -48,8 +48,8 @@ function OptionBar({ leftLinks, rightLinks }) {
       {extendedNavbar && (
         <NavbarExtendedContainer>
           <DropdownLinkContainer>
-          <LinkContainer extendedNavbar={true}>
-              
+            <LinkContainer extendedNavbar={true}>
+
               {leftLinks.map((link) => (
                 <NavbarLink to={link.route}>{link.title}</NavbarLink>
               ))}
@@ -57,12 +57,12 @@ function OptionBar({ leftLinks, rightLinks }) {
                 <NavbarLink to={link.route}>{link.title}</NavbarLink>
               ))}
             </LinkContainer>
-            
+
           </DropdownLinkContainer>
         </NavbarExtendedContainer>
       )}
     </OptionBarContainer>
-  );
+  )
 }
 
-export default OptionBar;
+export default OptionBar

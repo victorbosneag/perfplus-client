@@ -1,17 +1,15 @@
-import routes from "./api.config";
+import routes from './api.config'
 
-const url = "http://localhost:5000" + routes.contestget;
+const url = 'http://localhost:5000' + routes.contestget
 
 export const getContest = async () => {
-  try{
+  try {
     const response = fetch(url, {
-      method:"GET"
+      method: 'GET'
     })
     const responseRawData = await response
-    const responseData = await responseRawData.json();
-    return responseData;
-  }
-  catch(err){
-    throw new Error("Contest list error");
+    return await responseRawData.json()
+  } catch (err) {
+    throw new Error('Contest list error')
   }
 }
