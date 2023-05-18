@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, Route, Routes, useParams } from 'react-router-dom'
-import { findContest } from '../../api/contestfind.api'
-import { SidebarContentContainer } from './ContestInfo.style'
-import { ContestContext } from './ContestPage'
-import { Menu, MenuItem, Sidebar } from 'react-pro-sidebar'
-import { getConfig } from '../../api/getconfig.api'
+import React, {useContext, useEffect, useState} from 'react'
+import {Link, Route, Routes, useParams} from 'react-router-dom'
+import {findContest} from '../../api/contestfind.api'
+import {SidebarContentContainer} from './ContestInfo.style'
+import {ContestContext} from './ContestPage'
+import {Menu, MenuItem, Sidebar} from 'react-pro-sidebar'
+import {getConfig} from '../../api/getconfig.api'
 import ContestOverview from './ContestOverview'
 import AddParticipants from './AddParticipants'
 import RankParticipants from './RankParticipants'
@@ -12,7 +12,7 @@ import AddPost from './AddPost'
 import Login from '../Login'
 import ContestCreate from './ContestCreate'
 import InfoPage from './ContestPages/InfoPage'
-import { LoginContext } from '../../App'
+import {LoginContext} from '../../App'
 import ContestPosts from './ContestPages/ContestPosts'
 
 function ContestInfo () {
@@ -56,6 +56,7 @@ function ContestInfo () {
         <SidebarContentContainer>
           <Sidebar>
             <Menu>
+              <MenuItem component={<Link to={"posts"}/>}>Posts</MenuItem>
               {contestMenus.map((element) => {
                 return (
                   <MenuItem component={<Link to={element.route}/>}>
