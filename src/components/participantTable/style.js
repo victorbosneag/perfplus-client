@@ -5,7 +5,14 @@ export const PageContainer = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  min-height: 80vh;
-  padding: 50px;
+  padding: 30px;
   box-sizing: border-box;
 `
+
+export const PaginationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 30px;
+`;

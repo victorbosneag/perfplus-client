@@ -1,18 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { getParticipant } from '../../api/participantget.api'
-import { ParticipantDataContext } from '../../App'
+import React, {useEffect, useState} from 'react'
+import {getParticipant} from '../../api/participantget.api'
 import Table from '../table'
 
-import { PageContainer } from './style'
+import {PageContainer, PaginationContainer} from './style'
+import PageSelect from "../pageSelect";
 
-function ParticipantsTable (props) {
+function ParticipantsTable(props) {
   let columns = props.columns
   let selectionContest = props.selectionContest
   let selectionHighSchool = props.selectionHighSchool
-  let selectionPage = props.selectionPage
-  let selectionItems = props.selectionItems
+  let selectionItems = 10
 
-  let contestList = useContext(ParticipantDataContext)
+  function handlePageClick(event) {
+    setPagination({nrPage: pagination.nrPage, currentPage: event.selected + 1})
+  }
+
+  const [pagination, setPagination] = useState({nrPage: 15, currentPage: 1})
+  //let contestList = useContext(ParticipantDataContext)
 
   //const columns = ["ID", "First Name", "Last Name", "Result", "Award"];
   //use state and use effect for contest data
@@ -23,12 +27,10 @@ function ParticipantsTable (props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getParticipant(
-          selectionContest,
-          selectionHighSchool,
-          selectionPage,
-          selectionItems
-        )
+        const response = await getParticipant(selectionContest, selectionHighSchool, selectionItems, pagination.currentPage,)
+        setPagination({
+          nrPage: Math.ceil(response.total / Number(response.pageSize)), currentPage: pagination.currentPage
+        })
         const participantList = response.data.map((participantEntry) => {
           let participantData = []
           for (let key in participantEntry) {
@@ -46,13 +48,21 @@ function ParticipantsTable (props) {
       }
     }
     fetchData()
-  }, [selectionContest, selectionHighSchool, selectionPage, selectionItems, contestList])
+  }, [selectionContest, selectionHighSchool, selectionItems, pagination.currentPage])
 
-  return (
-    <PageContainer>
-      <Table columns={columns} tableBody={tableBody}/>
-    </PageContainer>
-  )
+  return (<PageContainer>
+    <Table columns={columns} tableBody={tableBody}/>
+    <PaginationContainer> <PageSelect
+      breakLabel="..."
+      nextLabel="next >"
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={5}
+      pageCount={pagination.nrPage}
+      previousLabel="< previous"
+      renderOnZeroPageCount={null}
+    /></PaginationContainer>
+
+  </PageContainer>)
 }
 
 export default ParticipantsTable
