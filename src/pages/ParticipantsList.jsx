@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 
 import SelectComponent from '../components/customSelect'
-import { FilterContainer, PageContainer } from './ParticipantsList.style'
-import { getContest } from '../api/contestget.api'
+import {FilterContainer, PageContainer} from './ParticipantsList.style'
+import {getContest} from '../api/contestget.api'
 
 import ParticipantsTable from '../components/participantTable'
 
-import { ParticipantDataContext } from '../App'
+import {ParticipantDataContext} from '../App'
 
-function ParticipantsList (props) {
+function ParticipantsList(props) {
   const columns = [
     'ID',
     'First Name',
@@ -45,7 +45,7 @@ function ParticipantsList (props) {
     fetchData()
   }, [])
 
-  function onSelectChange (event) {
+  function onSelectChange(event) {
     setSelectionContest(event.selection)
   }
 
