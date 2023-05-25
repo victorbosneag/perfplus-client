@@ -13,13 +13,20 @@ export const TableBorder = styled.div`
 
 `
 export const TableStyled = styled.table`
+  table-layout: fixed;
   border-collapse: collapse;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
-  width: fit-content;
+  min-width: 300px;
+  max-width: 90vw;
+  width: 100%;
   height: ${(props) => (props.height ? props.height : 'fit-content')};
   overflow-x: auto;
   overflow-y: auto;
+
+  th, td {
+    word-wrap: break-word;
+  }
 `
 
 export const TableHeadStyled = styled.thead`
