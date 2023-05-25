@@ -1,9 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {findContest} from '../../api/contestfind.api'
-import {SidebarContentContainer} from './ContestInfo.style'
+import {OpenSidebar, SidebarContentContainer} from './ContestInfo.style'
 import {ContestContext} from './ContestPage'
-import {Menu, MenuItem, Sidebar} from 'react-pro-sidebar'
+import {Menu, MenuItem, Sidebar, useProSidebar} from 'react-pro-sidebar'
 import {getConfig} from '../../api/getconfig.api'
 import ContestOverview from './ContestOverview'
 import AddParticipants from './AddParticipants'
@@ -15,9 +15,9 @@ import InfoPage from './ContestPages/InfoPage'
 import {LoginContext} from '../../App'
 import ContestPosts from './ContestPages/ContestPosts'
 
-function ContestInfo () {
+function ContestInfo() {
   const isSignIn = useContext(LoginContext).isSignIn
-  const { id } = useParams()
+  const {id} = useParams()
   const [name, setName] = useState('')
   const [date, setDate] = useState()
   const [subject, setSubject] = useState('None')
@@ -25,6 +25,8 @@ function ContestInfo () {
   const [contestMenus, setContestMenus] = useState([])
   const [loadDone, setLoadDone] = useState(false)
   const setContestSelected = useContext(ContestContext).setContestSelected
+  const {collapseSidebar, collapsed} = useProSidebar();
+  const windowWidth = useRef(window.innerWidth);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,10 +41,10 @@ function ContestInfo () {
       const responseConfig = await getConfig(id)
       let displayRoutes = []
       if (responseConfig.hasAnswers) {
-        displayRoutes.push({ name: 'Answers', route: 'answers' })
+        displayRoutes.push({name: 'Answers', route: 'answers'})
       }
       if (responseConfig.hasSubjects) {
-        displayRoutes.push({ name: 'Subjects', route: 'subjects' })
+        displayRoutes.push({name: 'Subjects', route: 'subjects'})
       }
       setContestMenus(displayRoutes)
     }
@@ -54,8 +56,9 @@ function ContestInfo () {
     <>
       {loadDone ? (
         <SidebarContentContainer>
-          <Sidebar>
+          <Sidebar defaultCollapsed={windowWidth.current < 900}>
             <Menu>
+              <OpenSidebar onClick={() => collapseSidebar()}>{collapsed ? ">" : "<"}</OpenSidebar>
               <MenuItem component={<Link to={"posts"}/>}>Posts</MenuItem>
               {contestMenus.map((element) => {
                 return (
@@ -92,6 +95,7 @@ function ContestInfo () {
               )
             })}
           </Routes>
+
         </SidebarContentContainer>) : (<div>Loading</div>)}
     </>
   )

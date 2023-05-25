@@ -4,3 +4,12 @@ export const SidebarContentContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
+export const OpenSidebar = styled.button`
+  width: 70px;
+  height: 50px;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 45px;
+  cursor: pointer;
+`
