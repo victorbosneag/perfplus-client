@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { listContest } from '../../api/contestlist.api'
+import React, {useEffect, useState} from 'react'
+import {listContest} from '../../api/contestlist.api'
 import Table from '../../components/table'
-import { ContestPageLink, PageContainer } from './ContestList.style'
+import {ContestPageLink, PageContainer} from './ContestList.style'
+import PageSelect from "../../components/pageSelect";
+import {PaginationContainer} from "../../components/participantTable/style";
 
-function ContestList () {
+function ContestList() {
   const [tableBody, setTableBody] = useState([])
+  const [pagination, setPagination] = useState({nrPage: 15, currentPage: 1})
+  let selectionItems = 10;
+
+  function handlePageClick(event) {
+    setPagination({nrPage: pagination.nrPage, currentPage: event.selected + 1})
+  }
+
   const columns = [
     'ID',
     'Name',
@@ -18,8 +27,13 @@ function ContestList () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseRaw = await listContest()
-        const response = responseRaw.data
+        const responseRaw = await listContest(selectionItems, pagination.currentPage)
+        const response = responseRaw.data;
+        console.log(responseRaw)
+        console.log(Math.ceil(responseRaw.total / Number(responseRaw.pageSize)))
+        setPagination({
+          nrPage: Math.ceil(responseRaw.total / Number(responseRaw.pageSize)), currentPage: pagination.currentPage
+        })
         const parsedContestData = response.map((contestEntry) => {
           return {
             id: contestEntry.id,
@@ -32,7 +46,7 @@ function ContestList () {
           }
         })
         const contestList = parsedContestData.map((contestEntry) => {
-          console.log(contestEntry)
+          //console.log(contestEntry)
           let contestData = []
           for (let key in contestEntry) {
             if (contestEntry.hasOwnProperty(key)) {
@@ -40,7 +54,7 @@ function ContestList () {
             }
           }
           contestData.push(<ContestPageLink to={'/contest/' + contestEntry.id}>View Contest</ContestPageLink>)
-          console.log(contestData)
+          //console.log(contestData)
           return contestData
         })
         setTableBody(contestList)
@@ -49,11 +63,20 @@ function ContestList () {
       }
     }
     fetchData()
-  }, [])
+  }, [selectionItems, pagination.currentPage])
   return (
 
     <PageContainer>
       <Table columns={columns} tableBody={tableBody}/>
+      <PaginationContainer> <PageSelect
+        breakLabel="..."
+        nextLabel="next->"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pagination.nrPage}
+        previousLabel="<-previous"
+        renderOnZeroPageCount={null}
+      /></PaginationContainer>
     </PageContainer>
 
   )

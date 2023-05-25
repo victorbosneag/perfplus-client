@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 export const PageContainer = styled.div`
@@ -22,3 +22,11 @@ export const ContestPageLink = styled(Link)`
   padding: 5px;
   text-decoration: none;
 `
+
+export const PaginationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 30px;
+`;
