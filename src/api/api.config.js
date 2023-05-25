@@ -14,7 +14,7 @@ const routes = {
   userinfo: '/api/user/info',
   getposts: '/api/post/list',
   getpost: '/api/post/find',
-
+  rankparticipant: '/api/ranking/create'
 }
 
 export default routes
