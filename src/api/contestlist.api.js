@@ -2,9 +2,17 @@ import routes from './api.config'
 
 const url = 'http://localhost:5000' + routes.contestlist
 
-export const listContest = async () => {
+export const listContest = async (items, page) => {
   try {
-    const response = fetch(url, {
+    let urlObj = new URL(url)
+    const data = {
+      nrItems: items,
+      nrPage: page
+    }
+    for (let i in data) {
+      urlObj.searchParams.append(i, data[i])
+    }
+    const response = fetch(urlObj, {
       method: 'GET'
     })
     const responseRawData = await response
