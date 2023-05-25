@@ -54,11 +54,11 @@ function ParticipantsTable(props) {
     <Table columns={columns} tableBody={tableBody}/>
     <PaginationContainer> <PageSelect
       breakLabel="..."
-      nextLabel="next >"
+      nextLabel="next->"
       onPageChange={handlePageClick}
       pageRangeDisplayed={5}
       pageCount={pagination.nrPage}
-      previousLabel="< previous"
+      previousLabel="<-previous"
       renderOnZeroPageCount={null}
     /></PaginationContainer>
 
