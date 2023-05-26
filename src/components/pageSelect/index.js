@@ -12,10 +12,13 @@ export default styled(ReactPaginate).attrs({
   padding: 0 5rem;
 
   li {
+    font-size: x-large;
     padding-left: 5px;
   }
 
   li a {
+    background-color: ${props => props.theme.accent1};
+    color: white;
     border-radius: 7px;
     padding: 0.1rem 1rem;
     border: gray 1px solid;
@@ -25,23 +28,23 @@ export default styled(ReactPaginate).attrs({
   li.previous a,
   li.next a {
     border-radius: 10px;
-    background-color: green;
+    background-color: ${props => props.theme.accent1};
     color: white;
   }
-  
+
   li.break a {
     border-color: transparent;
   }
 
   li.active a {
-    background-color: green;
+    background-color: ${props => props.theme.accent2};
     border-color: transparent;
-    color: white;
+    color: ${props => props.theme.defaultFont};;
     min-width: 32px;
   }
 
   li.disabled a {
-    color: #004800;
+    color: ${props => props.theme.defaultFont};
   }
 
   li.disable,

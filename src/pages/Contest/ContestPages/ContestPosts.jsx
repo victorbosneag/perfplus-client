@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { getposts } from '../../../api/getposts.api'
+import React, {useEffect, useState} from 'react'
+import {Route, Routes} from 'react-router-dom'
+import {getposts} from '../../../api/getposts.api'
 import Table from '../../../components/table'
-import { Line, PostContainer, PostLink, PostTitle } from './ContestPosts.style'
+import {Line, PostContainer, PostLink, PostTitle} from './ContestPosts.style'
 import PostPage from './PostPage'
+import {TitleContainer} from "../ContestPage.style";
 
 function ContestPosts (props) {
   const [tableData, setTableData] = useState([])
@@ -25,7 +26,9 @@ function ContestPosts (props) {
   }, [])
   return (
     <PostContainer>
-      <PostTitle>Posts</PostTitle>
+      <TitleContainer>
+        <PostTitle>Posts</PostTitle>
+      </TitleContainer>
       <Table columns={columnData} tableBody={tableData} height="300px"/>
       <Line/>
       <Routes>

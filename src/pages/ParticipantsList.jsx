@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
 import SelectComponent from '../components/customSelect'
-import {FilterContainer, PageContainer} from './ParticipantsList.style'
+import {FilterContainer, FilterLabel, PageContainer} from './ParticipantsList.style'
 import {getContest} from '../api/contestget.api'
 
 import ParticipantsTable from '../components/participantTable'
@@ -55,6 +55,7 @@ function ParticipantsList(props) {
         <></>
       ) : (
         <FilterContainer>
+          <FilterLabel>Contest: </FilterLabel>
           <SelectComponent
             data={dataContest}
             onSelectChange={onSelectChange}

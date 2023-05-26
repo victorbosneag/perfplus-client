@@ -15,12 +15,14 @@ export const PageContainer = styled.div`
 export const ContestPageLink = styled(Link)`
   font-size: 18px;
   border-style: solid;
-  background-color: greenyellow;
+  background-color: ${props => props.theme.accent1};
   border-radius: 5px;
-  border-width: 4px;
-  color: black;
-  padding: 5px;
+  border-width: 2px;
+  border-color: ${props => props.theme.optionbar};
+  color: ${props => props.theme.links};
+  padding: 8px;
   text-decoration: none;
+  font-weight: bold;
 `
 
 export const PaginationContainer = styled.div`

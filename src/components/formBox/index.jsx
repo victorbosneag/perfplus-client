@@ -12,8 +12,9 @@ import {
 function CustomForm (props) {
   return (
     <LoginContainer>
-      <LoginTitle>{props.title}</LoginTitle>
+
       <FormContainer onSubmit={props.submitFunction} autoComplete={'off'}>
+        <LoginTitle>{props.title}</LoginTitle>
         {props.formData.map((data) => {
           return (
             <FormEntryContainer>

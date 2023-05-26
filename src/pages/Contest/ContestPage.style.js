@@ -13,13 +13,14 @@ export const StyledTitle = styled.div`
   display: flex;
   font-size: xx-large;
   font-family: Arial, Helvetica, sans-serif;
-  color: fuchsia;
+  color: ${props => props.theme.navbar};
   margin: 10px;
 `
 
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #f1f1f1;
   padding: 10px;
   margin-bottom: 20px;
   border-width: 4px;

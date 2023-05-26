@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {FormLabel} from "../components/formBox/style";
 
 export const PageContainer = styled.div`
   display: flex;
@@ -13,8 +14,14 @@ export const PageContainer = styled.div`
 
 export const FilterContainer = styled.div`
   display: flex;
+  padding: 10px;
   margin-bottom: 30px;
   border-width: 4px;
   border-style: solid;
   align-items: center;
+  background-color: #f1f1f1;
+`
+
+export const FilterLabel = styled(FormLabel)`
+  font-size: x-large;
 `

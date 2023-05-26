@@ -10,8 +10,9 @@ export const LoginContainer = styled.div`
 `
 export const LoginTitle = styled.div`
   font-size: xx-large;
-  color: green;
+  color: ${props => props.theme.accent1};
   margin: 35px;
+  font-weight: bold;
 `
 
 export const FormContainer = styled.form`
@@ -21,13 +22,14 @@ export const FormContainer = styled.form`
   flex-direction: column;
   border-radius: 15px;
   border-style: solid;
-  border-color: red;
+  border-color: ${props => props.theme.border};
   overflow: hidden;
   align-items: center;
+  background-color: #f1f1f1;
 `
 
 export const FormLabel = styled.label`
-  color: blue;
+  color: ${props => props.theme.text1};
 `
 
 export const FormInput = styled.input`
@@ -35,7 +37,7 @@ export const FormInput = styled.input`
   height: 30px;
   max-width: 300px;
   border-style: solid;
-  border-color: green;
+  border-color: ${props => props.theme.border};
   border-width: 2px;
   border-radius: 10px;
   padding: 10px;
@@ -53,11 +55,11 @@ export const FormEntryContainer = styled.div`
 export const SubmitButton = styled.button`
   width: 50%;
   height: 35px;
-  background-color: green;
+  background-color: ${props => props.theme.accent1};
   border-radius: 10px;
   margin: 5px;
   border-width: 2px;
   border-color: black;
   font-size: medium;
-  color: white;
+  color: ${props => props.theme.links};
 `

@@ -8,7 +8,7 @@ export const StyledSelect = styled.select`
   height: 30px;
   border: 1px solid #999;
   font-size: 18px;
-  color: green;
+  color: ${props => props.theme.defaultFont};
   background-color: #eee;
   border-radius: 5px;
 `

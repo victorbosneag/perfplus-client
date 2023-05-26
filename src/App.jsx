@@ -12,6 +12,8 @@ import ContestPage from './pages/Contest/ContestPage'
 import {ProSidebarProvider} from 'react-pro-sidebar'
 import UserPage from './pages/User/UserPage'
 import {BodyContainer} from "./App.style";
+import {ThemeProvider} from "styled-components";
+import {theme} from "./style";
 
 const refreshSpeed = 10000
 export const LoginContext = createContext(false)
@@ -30,25 +32,27 @@ function App() {
     return () => clearInterval(interval)
   }, [])
   return (
-    <ProSidebarProvider>
-      <LoginContext.Provider value={{isSignIn, setIsSignIn}}>
-        <Router>
-          <Navbar/>
-          {optionBar}
-          <BodyContainer>
-            <Routes>
-              <Route index element={<ParticipantsList/>}/>
-              <Route path="login" element={<Login/>}/>
-              <Route path="signup" element={<Signup/>}/>
-              <Route path="participants" element={<ParticipantsList/>}/>
-              <Route path="logout" element={<LogOut/>}/>
-              <Route path="contest/*" element={<ContestPage setOption={setOptionBar}/>}/>
-              <Route path="user/*" element={<UserPage/>}/>
-            </Routes>
-          </BodyContainer>
-        </Router>
-      </LoginContext.Provider>
-    </ProSidebarProvider>
+    <ThemeProvider theme={theme}>
+      <ProSidebarProvider>
+        <LoginContext.Provider value={{isSignIn, setIsSignIn}}>
+          <Router>
+            <Navbar/>
+            {optionBar}
+            <BodyContainer>
+              <Routes>
+                <Route index element={<ParticipantsList/>}/>
+                <Route path="login" element={<Login/>}/>
+                <Route path="signup" element={<Signup/>}/>
+                <Route path="participants" element={<ParticipantsList/>}/>
+                <Route path="logout" element={<LogOut/>}/>
+                <Route path="contest/*" element={<ContestPage setOption={setOptionBar}/>}/>
+                <Route path="user/*" element={<UserPage/>}/>
+              </Routes>
+            </BodyContainer>
+          </Router>
+        </LoginContext.Provider>
+      </ProSidebarProvider>
+    </ThemeProvider>
   )
 }
 

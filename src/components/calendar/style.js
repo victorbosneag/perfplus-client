@@ -8,7 +8,7 @@ export const CalendarContainer = styled.div`
   .react-calendar {
     border-style: solid;
     width: 320px;
-    border-color: green;
+    border-color: ${props => props.theme.border};
     border-width: 2px;
     border-radius: 10px;
     padding: 10px;

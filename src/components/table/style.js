@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const TableBorder = styled.div`
 
   border-radius: 15px;
-  border-color: green;
+  border-color: ${props => props.theme.border};
   border-style: solid;
   border-width: 4px;
   overflow: hidden;
@@ -23,6 +23,7 @@ export const TableStyled = styled.table`
   height: ${(props) => (props.height ? props.height : 'fit-content')};
   overflow-x: auto;
   overflow-y: auto;
+  background-color: #f1f1f1;
 
   th, td {
     word-wrap: break-word;
@@ -30,7 +31,7 @@ export const TableStyled = styled.table`
 `
 
 export const TableHeadStyled = styled.thead`
-  background: green;
+  background: ${props => props.theme.border};
 
 `
 

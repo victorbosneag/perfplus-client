@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { NavbarContainer } from '../navbar/style'
+import {NavbarContainer} from '../navbar/style'
 
 export const OptionBarContainer = styled(NavbarContainer)`
-  background-color: lightgreen;
+  background-color: ${props => props.theme.optionbar};
 `
 
 
