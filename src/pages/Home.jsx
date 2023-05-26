@@ -4,10 +4,20 @@ import {listContest} from "../api/contestlist.api";
 import Table from "../components/table";
 import {TitleContainer} from "./Contest/ContestPage.style";
 import {LoginTitle} from "../components/formBox/style";
+import {useNavigate} from "react-router-dom";
 
 function Home(props) {
   const [tableBody, setTableBody] = useState([])
-
+  const urlRoot = "contest/"
+  let navigate = useNavigate();
+  useEffect(() => {
+    return () => {
+      const contestPage = window.location.pathname.indexOf(urlRoot) > -1;
+      if (!contestPage) {
+        props.setOptionBar(<></>)
+      }
+    };
+  }, []);
   const columns = [
     'ID',
     'Name',

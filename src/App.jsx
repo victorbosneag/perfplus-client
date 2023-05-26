@@ -42,7 +42,7 @@ function App() {
             {optionBar}
             <BodyContainer>
               <Routes>
-                <Route index element={<Home/>}/>
+                <Route index element={<Home setOptionBar={setOptionBar}/>}/>
                 <Route path="login" element={<Login/>}/>
                 <Route path="about" element={<About/>}/>
                 <Route path="signup" element={<Signup/>}/>
