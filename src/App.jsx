@@ -14,6 +14,8 @@ import UserPage from './pages/User/UserPage'
 import {BodyContainer} from "./App.style";
 import {ThemeProvider} from "styled-components";
 import {theme} from "./style";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 const refreshSpeed = 10000
 export const LoginContext = createContext(false)
@@ -40,8 +42,9 @@ function App() {
             {optionBar}
             <BodyContainer>
               <Routes>
-                <Route index element={<ParticipantsList/>}/>
+                <Route index element={<Home/>}/>
                 <Route path="login" element={<Login/>}/>
+                <Route path="about" element={<About/>}/>
                 <Route path="signup" element={<Signup/>}/>
                 <Route path="participants" element={<ParticipantsList/>}/>
                 <Route path="logout" element={<LogOut/>}/>

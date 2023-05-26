@@ -22,7 +22,7 @@ function ContestList() {
     'Is Active?',
     'Ministry Ack',
     'Created By',
-    'Test'
+    'View contest'
   ]
   useEffect(() => {
     const fetchData = async () => {
