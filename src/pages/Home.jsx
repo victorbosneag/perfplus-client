@@ -69,7 +69,7 @@ function Home(props) {
       </LogoContainer>
       <TableContainer>
         <TitleContainer>
-          <LoginTitle>Next upcoming 5 contests</LoginTitle>
+          <LoginTitle>Next 5 upcoming contests</LoginTitle>
         </TitleContainer>
         <Table columns={columns} tableBody={tableBody}/>
       </TableContainer>
