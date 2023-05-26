@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useRef, useState} from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {findContest} from '../../api/contestfind.api'
 import {OpenSidebar, SidebarContentContainer} from './ContestInfo.style'
-import {ContestContext} from './ContestPage'
 import {Menu, MenuItem, Sidebar, useProSidebar} from 'react-pro-sidebar'
 import {getConfig} from '../../api/getconfig.api'
 import ContestOverview from './ContestOverview'
@@ -24,7 +23,7 @@ function ContestInfo() {
   const [createdBy, setCreatedBy] = useState('None')
   const [contestMenus, setContestMenus] = useState([])
   const [loadDone, setLoadDone] = useState(false)
-  const setContestSelected = useContext(ContestContext).setContestSelected
+  //const setContestSelected = useContext(ContestContext).setContestSelected
   const {collapseSidebar, collapsed} = useProSidebar();
   const windowWidth = useRef(window.innerWidth);
 
@@ -49,8 +48,8 @@ function ContestInfo() {
       setContestMenus(displayRoutes)
     }
     fetchData()
-    setContestSelected(id)
-  }, [id, setContestSelected])
+    //setContestSelected(id)
+  }, [id])
 
   return (
     <>

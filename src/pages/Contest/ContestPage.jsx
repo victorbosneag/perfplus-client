@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react'
+import React, {createContext, useContext, useEffect} from 'react'
 import {Route, Routes, useLocation} from 'react-router-dom'
 import {LoginContext} from '../../App'
 import Option from '../../components/optionBar'
@@ -9,29 +9,32 @@ import ContestList from './ContestList'
 export const ContestContext = createContext(false)
 
 function ContestPage(props) {
-  const [contestSelected, setContestSelected] = useState(0)
   const isSignIn = useContext(LoginContext).isSignIn
   const location = useLocation()
+  const urlRoot = "contest/"
   let leftLinks = [{route: '/contest/list', title: 'List'}]
   let rightLinks = [{route: '/contest/create', title: 'Create Contest'}]
   let contestLeftLinks = []
   const contestRightLinks = (contestId) => {
     return [
-      {route: contestId + '/register', title: 'Register Participants'},
-      {route: contestId + '/rank', title: 'Rank Participants'},
-      {route: contestId + '/postcreate', title: 'Create Post'},
+      {route: 'contest/' + contestId + '/register', title: 'Register Participants'},
+      {route: 'contest/' + contestId + '/rank', title: 'Rank Participants'},
+      {route: 'contest/' + contestId + '/postcreate', title: 'Create Post'},
     ]
   }
   useEffect(() => {
-    setContestSelected(0)
+    console.log(location)
+    const trimmedPath = location.pathname.slice(location.pathname.indexOf(urlRoot) + urlRoot.length)
+    const contestId = parseInt(trimmedPath)
+    const hasId = !isNaN(parseInt(trimmedPath));
     props.setOption(<Option
       leftLinks={
-        contestSelected > 0 ? leftLinks.concat(contestLeftLinks) : leftLinks
+        hasId ? leftLinks.concat(contestLeftLinks) : leftLinks
       }
       rightLinks={
         isSignIn
-          ? contestSelected > 0
-            ? rightLinks.concat(contestRightLinks(contestSelected))
+          ? hasId
+            ? rightLinks.concat(contestRightLinks(contestId))
             : rightLinks
           : []
       }
@@ -39,13 +42,13 @@ function ContestPage(props) {
     // eslint-disable-next-line
   }, [location])
   return (
-    <ContestContext.Provider value={{contestSelected, setContestSelected}}>
-      <Routes>
-        <Route path="list" element={<ContestList/>}/>
-        <Route path="create" element={<ContestCreate/>}/>
-        <Route path=":id/*" element={<ContestInfo/>}/>
-      </Routes>
-    </ContestContext.Provider>
+
+    <Routes>
+      <Route path="list" element={<ContestList/>}/>
+      <Route path="create" element={<ContestCreate/>}/>
+      <Route path=":id/*" element={<ContestInfo/>}/>
+    </Routes>
+
   )
 }
 
