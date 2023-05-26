@@ -10,3 +10,17 @@ export const PageContainer = styled.div`
   padding: 50px;
   box-sizing: border-box;
 `
+
+export const ModalContentContainer = styled.div`
+  display: flex;
+  padding-top: 20px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+export const TableTitle = styled.div`
+  font-size: large;
+  color: green;
+  margin: 15px;
+`
