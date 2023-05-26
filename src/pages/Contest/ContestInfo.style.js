@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const SidebarContentContainer = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%
 `
 export const OpenSidebar = styled.button`
   width: 70px;
@@ -10,6 +11,6 @@ export const OpenSidebar = styled.button`
   background: none;
   border: none;
   color: black;
-  font-size: 45px;
+  font-size: 30px;
   cursor: pointer;
 `

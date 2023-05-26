@@ -56,7 +56,7 @@ function ContestInfo() {
     <>
       {loadDone ? (
         <SidebarContentContainer>
-          <Sidebar defaultCollapsed={windowWidth.current < 900}>
+          <Sidebar collapsedWidth={"45px"} defaultCollapsed={windowWidth.current < 900}>
             <Menu>
               <OpenSidebar onClick={() => collapseSidebar()}>{collapsed ? ">" : "<"}</OpenSidebar>
               <MenuItem component={<Link to={"posts"}/>}>Posts</MenuItem>
