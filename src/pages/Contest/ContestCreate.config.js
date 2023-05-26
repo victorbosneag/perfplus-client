@@ -9,6 +9,16 @@ const formData = [
     name: 'subject',
     type: 'text',
   },
+  {
+    label: "Answers tab",
+    name: "hasAnswers",
+    type: "checkbox"
+  },
+  {
+    label: "Subjects tab",
+    name: "hasSubjects",
+    type: "checkbox"
+  }
 ]
 
 export default formData

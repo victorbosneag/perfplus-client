@@ -1,5 +1,5 @@
 import React from 'react'
-import { contestcreate } from '../../api/contestcreate.api'
+import {contestcreate} from '../../api/contestcreate.api'
 import InputCalendar from '../../components/calendar'
 import CustomForm from '../../components/formBox'
 import getToken from '../../utils/gettoken.util'
@@ -14,9 +14,12 @@ function ContestCreate () {
     console.log(value)
     try {
       value['token'] = getToken()
+      value['hasAnswers'] = value['hasAnswers'] === "on";
+      value['hasSubjects'] = value['hasSubjects'] === "on"
       const resp = await contestcreate(value)
       console.log(resp)
     } catch (err) {
+      alert("Create Contest fail")
       console.log('Create Contest fail')
     }
   }
