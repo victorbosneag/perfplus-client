@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {Route, Routes, useLocation} from 'react-router-dom'
 import {LoginContext} from '../../App'
 import Option from '../../components/optionBar'
@@ -6,7 +6,6 @@ import ContestCreate from './ContestCreate'
 import ContestInfo from './ContestInfo'
 import ContestList from './ContestList'
 
-export const ContestContext = createContext(false)
 
 function ContestPage(props) {
   const isSignIn = useContext(LoginContext).isSignIn
