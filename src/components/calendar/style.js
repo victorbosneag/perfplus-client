@@ -28,6 +28,7 @@ export const ContestTableTitle = styled.div`
   margin-bottom: 10px;
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
-  color: magenta;
+  color: ${props => props.theme.text1};
+  font-weight: bold;
 
 `
