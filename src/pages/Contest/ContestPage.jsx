@@ -5,6 +5,7 @@ import Option from '../../components/optionBar'
 import ContestCreate from './ContestCreate'
 import ContestInfo from './ContestInfo'
 import ContestList from './ContestList'
+import getRole from "../../utils/getrole.util";
 
 
 function ContestPage(props) {
@@ -12,14 +13,18 @@ function ContestPage(props) {
   const location = useLocation()
   const urlRoot = "contest/"
   let leftLinks = [{route: '/contest/list', title: 'List'}]
-  let rightLinks = [{route: '/contest/create', title: 'Create Contest'}]
+  let rightLinks = [getRole() === "Coordinator" ? {
+    route: '/contest/create',
+    title: 'Create Contest'
+  } : null].filter(Boolean)
   let contestLeftLinks = []
   const contestRightLinks = (contestId) => {
-    return [
-      {route: 'contest/' + contestId + '/register', title: 'Register Participants'},
-      {route: 'contest/' + contestId + '/rank', title: 'Rank Participants'},
-      {route: 'contest/' + contestId + '/postcreate', title: 'Create Post'},
+    const baseArray = [
+      {route: 'contest/' + contestId + '/register', title: 'Register Participants'}
     ]
+    getRole() === "Coordinator" && baseArray.push({route: 'contest/' + contestId + '/rank', title: 'Rank Participants'})
+    getRole() === "Coordinator" && baseArray.push({route: 'contest/' + contestId + '/postcreate', title: 'Create Post'})
+    return baseArray;
   }
   useEffect(() => {
     console.log(location)
