@@ -33,3 +33,11 @@ Resurse folosite:
     - react-scroll-horizontal
     - styled-components
     - turndown
+
+---------
+
+Instructiuni de instalare:
+```
+npm install
+npm start
+```
