@@ -19,6 +19,32 @@ Caracteristici:
 
 -----------
 
+Module implementate:
+1. Sistem de paginatie (paginatia se face in backend cat si in frontend)
+2. Tabel pentru introducerea datelor (adauga datele intr-o coada) care poate accepta si importuri de tip csv
+3. Formular configurabil
+4. Componenta tabel configurabil
+5. Sistem de paginatie pentru backend
+6. Middleware pentru evaluarea privilegiilor
+7. Transfer de date pentru fisierele auxiliare realizat cu encoding in baza 64
+8. Autentificare cu JWT
+
+--------
+
+Functionalitati implementate:
+- Se pot crea conturi pentru profesori si coordonatori
+- Se pot login utilizatorii
+- Se poate creea un concurs (numai pentru coordonatori) (cu fisiere auxiliare configurabile)
+- Se pot inscrie participantii de catre profesori
+- Se pot adauga rezultatele concursului (numai de catre coordonator)
+- Se pot crea postari pentru fiecare concurs (numai de catre coordonator)
+- Se pot adauga fisiere auxiliare (numai de catre coordonatorl)
+- Se pot vizualiza concursurile cu toate anexele (postari si fisiere auxiliare) (rezultatele sunt redate cu paginatie)
+- Se pot vizualiza participantii (rezultatele sunt redate cu paginatie)
+- Utilizatorul poate sa isi vizualizeze profilul
+
+
+---------
 ## Frontend
 
 Resurse folosite:
