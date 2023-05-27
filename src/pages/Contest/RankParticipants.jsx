@@ -8,6 +8,7 @@ import Table from '../../components/table'
 import {PageContainer} from './ContestList.style'
 import {SubmitButton} from '../../components/formBox/style'
 import {rankParticipant} from "../../api/rankparticipant.api";
+import getToken from "../../utils/gettoken.util";
 
 function RankParticipants() {
   const columns = ['ID', 'First Name', 'Last Name', 'Result', 'Award']
@@ -49,7 +50,10 @@ function RankParticipants() {
       }
     })
     if (!hasError) {
-      const resposnse = await rankParticipant({rankings: newRankings})
+      const resposnse = await rankParticipant({
+        token: getToken(),
+        rankings: newRankings
+      })
       console.log(resposnse)
     }
 

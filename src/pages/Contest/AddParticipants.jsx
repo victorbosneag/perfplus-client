@@ -8,6 +8,7 @@ import Modal from "../../components/modal";
 import objectToTable from "../../utils/objectToTable";
 import Table from "../../components/table";
 import {ModalContentContainer, TableTitle} from "./AddParticipants.style";
+import getToken from "../../utils/gettoken.util";
 
 const columns = ['First Name', 'Last Name', 'Highschool']
 const columnIds = ['firstName', 'lastName', 'highschool']
@@ -27,6 +28,7 @@ function AddParticipants() {
     const value = Object.fromEntries(data.entries())
     const contentArray = JSON.parse(value.participants)
     const requestObject = {
+      token: getToken(),
       contest: contestName,
       participants: contentArray
     }

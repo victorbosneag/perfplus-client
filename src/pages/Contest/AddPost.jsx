@@ -1,13 +1,14 @@
 // noinspection JSPotentiallyInvalidConstructorUsage
 
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { addpost } from '../../api/addpost.api'
+import React, {useState} from 'react'
+import {useParams} from 'react-router-dom'
+import {addpost} from '../../api/addpost.api'
 import CustomForm from '../../components/formBox'
 import formData from './AddPost.config'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import turndown from 'turndown'
+import getToken from "../../utils/gettoken.util";
 
 function AddPost () {
   const { id } = useParams()
@@ -24,6 +25,7 @@ function AddPost () {
     const data = new FormData(event.target)
     const value = Object.fromEntries(data.entries())
     const requestBody = {
+      token: getToken(),
       title: value.title,
       body: value.text,
       type: 'info',
