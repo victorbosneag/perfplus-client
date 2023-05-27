@@ -25,8 +25,7 @@ Resurse folosite:
 
 1. Imagini:
     - Sigla: [Logo-maker](https://logo-maker.freelogodesign.org)
-    -
-    Fundal: [Freepik](https://www.freepik.com/free-photo/blackboard-with-calculations-frame_2483500.htm#query=blackboard&position=49&from_view=keyword&track=sph")
+    - Fundal: [Freepik](https://www.freepik.com/free-photo/blackboard-with-calculations-frame_2483500.htm#query=blackboard&position=49&from_view=keyword&track=sph")
 2. Biblioteci:
     - react
     - d3
