@@ -1,8 +1,8 @@
 // noinspection JSUnusedLocalSymbols
 
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { signup } from '../api/signup.api'
+import {useNavigate} from 'react-router-dom'
+import {signup} from '../api/signup.api'
 import CustomForm from '../components/formBox'
 import formData from './SignUpForm.config'
 
@@ -23,7 +23,7 @@ function Signup () {
   }
   return (
 
-    <CustomForm formData={formData} title="Codeforces" submitFunction={handleSubmit} buttonText="Sign up"/>
+    <CustomForm formData={formData} title="Sign up" submitFunction={handleSubmit} buttonText="Sign up"/>
 
   )
 }
