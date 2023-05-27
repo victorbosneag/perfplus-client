@@ -1,16 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Document, Page, pdfjs } from 'react-pdf'
-import { getFile } from '../../../api/getfile.api'
-import { LoginContext } from '../../../App'
-import { DocContainer, InfoContainer, InfoForm, InfoTitle, } from './InfoPage.style'
-import { SubmitButton } from '../../../components/formBox/style'
+import React, {useContext, useEffect, useState} from 'react'
+import {Document, Page, pdfjs} from 'react-pdf'
+import {getFile} from '../../../api/getfile.api'
+import {LoginContext} from '../../../App'
+import {DocContainer, InfoContainer, InfoForm, InfoTitle,} from './InfoPage.style'
+import {SubmitButton} from '../../../components/formBox/style'
 import convertToBase64 from '../../../utils/convertToBase64.util'
 import getToken from '../../../utils/gettoken.util'
-import { addfile } from '../../../api/addfile.api'
+import {addfile} from '../../../api/addfile.api'
+import {TitleContainer} from "../ContestPage.style";
+import getRole from "../../../utils/getrole.util";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
-function InfoPage (props) {
+function InfoPage(props) {
   const contest = props.contest
   const type = props.type
   console.log(contest)
@@ -48,8 +50,10 @@ function InfoPage (props) {
   const pdfProps = { data: documentObject }
   return (
     <InfoContainer>
-      <InfoTitle>{type}</InfoTitle>
-      {isSignIn ? (
+      <TitleContainer>
+        <InfoTitle>{type}</InfoTitle>
+      </TitleContainer>
+      {isSignIn && getRole() === "Coordinator" ? (
         <InfoForm onSubmit={handleSubmit}>
           <input type="file"/>
           <SubmitButton type="input">Submit</SubmitButton>
