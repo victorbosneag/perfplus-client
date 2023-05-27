@@ -16,6 +16,7 @@ function ParticipantsList(props) {
     'Result',
     'Award',
     'Contest',
+    'Highschool',
   ]
   //use state and use effect for contest data
   const [dataContest, setData] = useState([])

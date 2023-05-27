@@ -38,7 +38,7 @@ function ParticipantsTable(props) {
               participantData.push(participantEntry[key])
             }
           }
-          participantData = participantData.slice(0, 5).concat(participantData[9])
+          participantData = participantData.slice(0, 5).concat(participantData[9]).concat((participantData[10]))
 
           return participantData
         })
